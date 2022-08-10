@@ -5,7 +5,7 @@
     <!-- Logo -->
     <div class="pt-2">
       <!-- <a href="../index.php"><img src="assets/img/logo.svg" alt="Logo" /></a> -->
-      <a href="/listing" class="flex items-center">
+      <a href="/prolist" class="flex items-center">
                 <img src="https://flowbite.com/docs/images/logo.svg" class="mr-3 h-8" alt="Logo">
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Listing</span>
             </a>
