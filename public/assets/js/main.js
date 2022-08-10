@@ -65,27 +65,27 @@ themeToggleBtn.addEventListener("click", function () {
 
 // End DarkMode Toggle.
 
-var swiper = new Swiper(".slide-content", {
-  spaceBetween: 55,
+$(".owl-carousel").owlCarousel({
   loop: true,
-  centerSlide: "true",
-  fade: "true",
-  grabCursor: "true",
-  
-  slidesPerView: "auto",
-  autoplay: {
-    delay: 2500,
-    disableOnInteraction: false,
-  },
-
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
+  margin: 10,
+  nav: false,
+  loop: true,
+  margin: 10,
+  autoplay: true,
+  autoplayTimeout: 5000,
+  autoplayHoverPause: true,
+  responsive: {
+    0: {
+      items: 1,
+    },
+    600: {
+      items: 3,
+    }
   },
 });
-// End Swiper
-
+$(".play").on("click", function () {
+  owl.trigger("play.owl.autoplay", [1000]);
+});
+$(".stop").on("click", function () {
+  owl.trigger("stop.owl.autoplay");
+});

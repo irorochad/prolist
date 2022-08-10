@@ -84,10 +84,12 @@
 
 
 
+<script src="../public/assets/js/jquery-3.6.0.min.js"></script>
+
+<script src="../public/assets/js/owl.carousel.min.js"></script>
+<script src="../public/assets/js/main.js"></script>
 
 </body>
-<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 
-<script src="assets/js/main.js"></script>
 
 </html>
