@@ -70,7 +70,7 @@ $(".owl-carousel").owlCarousel({
   margin: 10,
   nav: false,
   loop: true,
-  margin: 10,
+  margin: 5,
   autoplay: true,
   autoplayTimeout: 5000,
   autoplayHoverPause: true,
@@ -78,9 +78,13 @@ $(".owl-carousel").owlCarousel({
     0: {
       items: 1,
     },
-    600: {
+    700: {
+      items: 2,
+    },
+    1000: {
       items: 3,
     }
+
   },
 });
 $(".play").on("click", function () {

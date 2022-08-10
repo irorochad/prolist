@@ -28,6 +28,9 @@ module.exports = {
         Montserrat: "Montserrat, sans-serif",
         
       },
+      widths: {
+        '30': '5rem',
+      }
     },
   },
   plugins: [],
