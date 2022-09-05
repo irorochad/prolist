@@ -6,7 +6,7 @@ function searchResult()
 {
     global $db_connection;
     global $searchData;
-    $query = "SELECT * FROM projects_info WHERE project_name LIKE '%$searchData%' OR tags LIKE  '%$searchData%'";
+    $query = "SELECT * FROM projects_info WHERE project_name LIKE '%$searchData%' OR project_tags LIKE  '%$searchData%'";
 
     $fetch_all_posts_data = mysqli_query($db_connection, $query);
 
@@ -37,15 +37,15 @@ function searchResult()
 
             <div class="flex flex-row justify-between items-center">
 
-                <img class="w-1/3" src="./assets/img/coinprofitLogo.png" alt="LOGO">
+                <?php echo "<img class='w-1/3' src='./assets/img/$project_logo' alt='LOGO'>" ?>
 
-                <h5 class="mb-2 text-2xl font-bold  text-gray-800 dark:text-gray-100  mr-5"><?php echo $project_name; ?></h5>
+                <h5 class="mb-2 text-2xl font-bold  text-gray-800 dark:text-gray-100  mr-5"><?php echo htmlspecialchars($project_name); ?></h5>
 
             </div>
 
             <div class="p-5">
 
-                <p class="mb-3 font-normal text-left text-gray-700 dark:text-gray-400"><?php echo $project_content; ?> </p>
+                <div class="mb-3 font-normal text-left text-gray-700 dark:text-gray-400"><?php echo $project_content; ?></div>
 
                 <a href="#" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     Explore
