@@ -91,7 +91,7 @@
 
                         <?php echo "<img class='w-1/3' src='./assets/img/$project_logo' alt='LOGO'>" ?>
 
-                        <h5 class="mb-2 text-2xl font-bold  text-gray-800 dark:text-gray-100  mr-5"><?php echo htmlspecialchars($project_name); ?></h5>
+                        <h5 class="mb-2 text-2xl font-bold  text-gray-800 dark:text-gray-100  mr-5"><?php echo $project_name; ?></h5>
 
                     </div>
 

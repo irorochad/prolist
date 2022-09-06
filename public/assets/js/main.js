@@ -1,12 +1,3 @@
-const menuBTN = document.getElementById("menu-btn");
-const mobileMenu = document.getElementById("menu");
-
-menuBTN.addEventListener("click", () => {
-  menuBTN.classList.toggle("open");
-  mobileMenu.classList.toggle("flex");
-  mobileMenu.classList.toggle("hidden");
-});
-
 // Dark Mode
 
 // On page load or when changing themes, best to add inline in `head` to avoid FOUC
@@ -64,6 +55,17 @@ themeToggleBtn.addEventListener("click", function () {
 });
 
 // End DarkMode Toggle.
+
+const menuBTN = document.getElementById("menu-btn");
+const mobileMenu = document.getElementById("menu");
+
+menuBTN.addEventListener("click", () => {
+  menuBTN.classList.toggle("open");
+  mobileMenu.classList.toggle("flex");
+  mobileMenu.classList.toggle("hidden");
+});
+
+
 
 $(".owl-carousel").owlCarousel({
   loop: true,
