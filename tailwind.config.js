@@ -23,9 +23,8 @@ module.exports = {
         xl: "1280px",
       },
       fontFamily: {
-        // Comma-delimited format:
-        Poppins: "Poppins, sans-serif",
-        Montserrat: "Montserrat, sans-serif",
+        'Poppins': 'Poppins, sans-serif',
+        'Montserrat': 'Montserrat, sans-serif',
         
       },
       widths: {

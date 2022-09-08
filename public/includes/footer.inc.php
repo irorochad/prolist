@@ -1,4 +1,4 @@
-<footer class=" mx-auto p-4 sm:p-6 bg-white dark:bg-slate-800">
+<footer class=" mx-auto p-4 sm:p-6 bg-white dark:bg-slate-800 font-Poppins">
     <div class="md:flex md:justify-between">
         <div class="mb-6 md:mb-0">
             <a href="/listing/" class="flex items-center">

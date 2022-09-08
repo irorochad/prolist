@@ -1,5 +1,5 @@
   <!-- This is a Desktop  Menu -->
-  <nav class="relative mx-auto drop-shadow-1xl hidden md:block ">
+  <nav class="relative mx-auto drop-shadow-1xl hidden md:block font-Poppins">
     <!-- Topbar Menu -->
     <div class="flex justify-end gap-3 mx-auto py-2 px-4">
       <!-- Lang translator -->
