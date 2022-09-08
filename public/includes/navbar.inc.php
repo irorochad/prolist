@@ -56,3 +56,24 @@
     </div>
   </div>
 </nav> <!-- End Deskop Nav -->
+
+<!-- Start mobile Nav -->
+
+<!-- Hamburger Icon -->
+<button id="menu-btn" class="block hamburger md:hidden focus:outline-none">
+  <span class="hamburger-top bg-slate-800 dark:bg-white"></span>
+  <span class="hamburger-middle bg-slate-800 dark:bg-white"></span>
+  <span class="hamburger-bottom bg-slate-800 dark:bg-white"></span>
+</button>
+</div>
+
+<!-- Mobile Menu -->
+<div class="md:hidden">
+<div id="menu" class="bg-white dark:bg-slate-800 absolute flex-col items-center hidden self-end py-8 mt-10 space-y-6 font-bold b sm:w-auto sm:self-center left-6 right-6 drop-shadow-md z-40">
+  <a href="explore-project.php" class="text-gray-800 dark:text-gray-200">Explore Projects</a>
+  <a href="#" class="text-gray-800 dark:text-gray-200">Explore Jobs</a>
+  <a href="#" class="text-gray-800 dark:text-gray-200">Resources</a>
+  <a href="login.php" class="text-gray-800 dark:text-gray-200">Login</a>
+  <a href="#" class="ml-2 p-3 px-6 pt-2  rounded-full baseline font-semibold text-white bg-brandBlue">List for Free</a>
+</div>
+</div>
