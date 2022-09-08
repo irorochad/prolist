@@ -905,6 +905,14 @@ video {
   justify-content: space-between;
 }
 
+.justify-around{
+  justify-content: space-around;
+}
+
+.justify-evenly{
+  justify-content: space-evenly;
+}
+
 .gap-4{
   gap: 1rem;
 }
@@ -1149,6 +1157,10 @@ video {
   padding-top: 2.5rem;
 }
 
+.pt-4{
+  padding-top: 1rem;
+}
+
 .text-left{
   text-align: left;
 }
@@ -1212,6 +1224,10 @@ video {
 
 .uppercase{
   text-transform: uppercase;
+}
+
+.tracking-wide{
+  letter-spacing: 0.025em;
 }
 
 .text-gray-900{

@@ -2,9 +2,9 @@
 <?php include "./includes/navbar.inc.php" ?>
 
 
-<div class="mt-20 mb-20 px-4">
+<div class="mt-20 mb-20 px-4 font-Montserrat">
     <!-- Main Project Header -->
-    <div class=" grid grid-cols-2   items-center w-full">
+    <div class=" grid grid-cols-2  items-center w-full">
         <!-- Left Header -->
         <div class="md:w-1/2">
             <div class="flex justify-start gap-4 ">
@@ -12,7 +12,7 @@
                     <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png" alt="Logo" />
                 </div>
                 <div class="flex flex-col">
-                    <h1>Binance</h1>
+                    <h1 class="text-4xl md:text-5xl font-bold  text-brandBlue dark:to-blue-700 md:text-left">Binance</h1>
                     <span class="flex flex-row gap-4">
                         <h3>Category</h3>
                         <p>Save</p>
