@@ -1,11 +1,11 @@
-<footer class="container mx-auto p-4 bg-gray-50 sm:p-6 dark:bg-gray-900">
+<footer class=" mx-auto p-4 sm:p-6 bg-white dark:bg-slate-800">
     <div class="md:flex md:justify-between">
         <div class="mb-6 md:mb-0">
             <a href="/listing/" class="flex items-center">
                 <img src="https://flowbite.com/docs/images/logo.svg" class="mr-3 h-8" alt="FlowBite Logo">
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Listing</span>
             </a>
-            <p>A cool slogan can be here to help them know the mission</p>
+            <p class="text-gray-800 dark:text-gray-200">A cool slogan can be here to help them know the mission</p>
         </div>
         <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
             <div>

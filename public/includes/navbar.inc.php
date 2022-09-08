@@ -1,10 +1,10 @@
-<nav class=" mx-auto drop-shadow-1xl hidden md:block"> <!-- This is a Desktop  Menu -->
-  <div class="relative p-2 ">
+  <!-- This is a Desktop  Menu -->
+  <nav class="relative mx-auto drop-shadow-1xl hidden md:block ">
     <!-- Topbar Menu -->
-    <div class="flex justify-end gap-3 container mx-auto ">
+    <div class="flex justify-end gap-3 mx-auto py-2 px-4">
       <!-- Lang translator -->
       <select class="bg-transparent text-gray-800 dark:text-gray-200">
-        <option >English</option>
+        <option>English</option>
         <option>Spanish</option>
         <option>German</option>
         <option>Pidgin</option>
@@ -23,10 +23,13 @@
         <a href="./register.php" class="ml-2 p-3 px-6 pt-2  rounded-full baseline font-semibold text-white bg-brandBlue">List for Free</a>
       </div>
     </div> <!-- End Topbar Menu -->
-    <hr class="my-2 bg-slate-800 dark:bg-white">
+
+    <div class="p-4">
+      <hr class="my-1 border-gray-200 sm:mx-auto dark:border-gray-700">
+    </div>
     <!-- Start Main Menu -->
-    <div class=" bg-white dark:bg-slate-800 py-2">
-      <div class="container mx-auto flex items-center justify-between">
+    <div class="bg-white dark:bg-slate-800 py-2 px-4">
+      <div class=" mx-auto flex items-center justify-between">
         <!-- Logo -->
         <div class="flex items-center gap-10">
           <a href="/prolist" class="flex items-center">
@@ -54,26 +57,25 @@
         <!-- End Search Box -->
       </div>
     </div>
+  </nav> <!-- End Deskop Nav -->
+
+  <!-- Start mobile Nav -->
+
+  <!-- Hamburger Icon -->
+  <button id="menu-btn" class="block hamburger md:hidden focus:outline-none">
+    <span class="hamburger-top bg-slate-800 dark:bg-white"></span>
+    <span class="hamburger-middle bg-slate-800 dark:bg-white"></span>
+    <span class="hamburger-bottom bg-slate-800 dark:bg-white"></span>
+  </button>
   </div>
-</nav> <!-- End Deskop Nav -->
 
-<!-- Start mobile Nav -->
-
-<!-- Hamburger Icon -->
-<button id="menu-btn" class="block hamburger md:hidden focus:outline-none">
-  <span class="hamburger-top bg-slate-800 dark:bg-white"></span>
-  <span class="hamburger-middle bg-slate-800 dark:bg-white"></span>
-  <span class="hamburger-bottom bg-slate-800 dark:bg-white"></span>
-</button>
-</div>
-
-<!-- Mobile Menu -->
-<div class="md:hidden">
-<div id="menu" class="bg-white dark:bg-slate-800 absolute flex-col items-center hidden self-end py-8 mt-10 space-y-6 font-bold b sm:w-auto sm:self-center left-6 right-6 drop-shadow-md z-40">
-  <a href="explore-project.php" class="text-gray-800 dark:text-gray-200">Explore Projects</a>
-  <a href="#" class="text-gray-800 dark:text-gray-200">Explore Jobs</a>
-  <a href="#" class="text-gray-800 dark:text-gray-200">Resources</a>
-  <a href="login.php" class="text-gray-800 dark:text-gray-200">Login</a>
-  <a href="#" class="ml-2 p-3 px-6 pt-2  rounded-full baseline font-semibold text-white bg-brandBlue">List for Free</a>
-</div>
-</div>
+  <!-- Mobile Menu -->
+  <div class="md:hidden">
+    <div id="menu" class="bg-white dark:bg-slate-800 absolute flex-col items-center hidden self-end py-8 mt-10 space-y-6 font-bold b sm:w-auto sm:self-center left-6 right-6 drop-shadow-md z-40">
+      <a href="explore-project.php" class="text-gray-800 dark:text-gray-200">Explore Projects</a>
+      <a href="#" class="text-gray-800 dark:text-gray-200">Explore Jobs</a>
+      <a href="#" class="text-gray-800 dark:text-gray-200">Resources</a>
+      <a href="login.php" class="text-gray-800 dark:text-gray-200">Login</a>
+      <a href="#" class="ml-2 p-3 px-6 pt-2  rounded-full baseline font-semibold text-white bg-brandBlue">List for Free</a>
+    </div>
+  </div>

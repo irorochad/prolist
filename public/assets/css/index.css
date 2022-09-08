@@ -1,3 +1,12 @@
+/* MAX Width for any screen */
+body {
+  width:100%;
+  max-width: 1809px;
+  margin: auto;
+
+}
+/* End Max Width */
+
 /* custom scroll bar */
 ::-webkit-scrollbar {
   width: 7px;
