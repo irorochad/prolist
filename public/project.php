@@ -28,16 +28,62 @@
         <!-- Right Header -->
         <div class="flex justify-end">
             <!-- <p class="text-gray-800 dark:text-gray-200 ">Visit Site</p> -->
-            <a href="#" class="inline-flex items-center py-2 px-3 text-md font-semibold text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 dark:bg-blue-600 ">
+            <a href="#" target="_blank" class="inline-flex items-center py-2 px-3 text-md font-semibold text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 dark:bg-blue-600 ">
                 Website
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ml-2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 ml-5" style="fill: rgba(255, 255, 255, 1);">
+                    <path d="m13 3 3.293 3.293-7 7 1.414 1.414 7-7L21 11V3z"></path>
+                    <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"></path>
                 </svg>
             </a>
-
         </div> <!-- End Right Header -->
     </div>
     <!-- End Project Header -->
 </div>
+<!-- Project Hero-->
+<div class="grid grid-cols-1 md:grid-cols-4 mt-10 mb-10 px-4 mx-auto">
+    <!-- Left Item -->
+    <div class="flex flex-col md:col-start-1 md:col-end-3 w-full text-left text-gray-800 dark:text-gray-200 p-4">
+        <h1 class="text-3xl md:text-4xl font-bold font-Montserrat mb-4">About Project</h1>
+        <p class="">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce turpis ante, eleifend vitae turpis ultricies, eleifend ullamcorper ex. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam egestas, metus id tempor elementum, libero libero consectetur tortor, nec auctor odio purus eget urna. Ut iaculis hendrerit leo in fringilla. Fusce euismod arcu tortor, sed rhoncus quam semper et. Vestibulum facilisis gravida nisi a commodo. Aenean tempus accumsan lectus, eget dapibus felis aliquet vel. Donec aliquet massa quis augue ullamcorper posuere.
+
+        </p>
+    </div>
+    <!-- Right Item -->
+    <div class="flex flex-col md:col-start-4 md:col-end-5 w-full text-gray-800 dark:text-gray-200 drop-shadow-md bg-white dark:bg-[#101313] rounded-md p-4">
+        <h1 class="text-3xl md:text-4xl font-bold font-Montserrat md:text-right">Useful Data</h1>
+        <div class="flex flex-row justify-between mt-5">
+            <p>Website:</p>
+            <p> <a href="https://example.com" target="_blank" class="inline-flex items-center  text-blue-600 dark:text-blue-500 hover:underline">
+                    www.example.com
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 ml-3" style="fill: rgba(90, 43, 224, 1);">
+                        <path d="m13 3 3.293 3.293-7 7 1.414 1.414 7-7L21 11V3z"></path>
+                        <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"></path>
+                    </svg>
+                </a></p>
+        </div>
+        <div class="flex flex-row justify-between font-Poppins mt-5">
+            <h1 class="">Founded:</h1>
+            <P>2019</P>
+        </div>
+        <div class="flex flex-row justify-between font-Poppins mt-5">
+            <p>Num. Of Investors:</p>
+            <P>5</P>
+        </div>
+        <div class="flex flex-row justify-between font-Poppins mt-5">
+            <p>Num. Of Employee:</p>
+            <P>5-10</P>
+        </div>
+    </div>
+
+</div>
+<!-- End Project Hero -->
+
+
+
+
+
+
+
 
 <?php include "./includes/footer.inc.php" ?>
