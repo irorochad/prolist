@@ -19,7 +19,7 @@
 
 
             <div class="p-4 max-w-sm md:min-w-[50%]  bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
-                <form class="space-y-6" action="./searchresult.php" method="GET">
+                <form class="space-y-6" action="./search.php" method="GET">
                     <h5 class="text-xl font-medium text-gray-900 dark:text-white">Search Filter</h5>
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Enter Keywords</label>

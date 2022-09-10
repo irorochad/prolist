@@ -17,7 +17,7 @@
 
 
             <div class="p-4 max-w-sm md:min-w-[50%]  bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
-                <form class="space-y-6" action="./searchresult.php" method="GET">
+                <form class="space-y-6" action="./search.php" method="GET">
                     <h5 class="text-xl font-medium text-gray-900 dark:text-white">Search Filter</h5>
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Enter Keywords</label>
@@ -82,7 +82,7 @@
                 $project_id = $row['id'];
                 $project_logo = $row['project_logo'];
                 $project_name = $row['project_name'];
-                $project_content = $row['project_content'];
+                $project_content = substr($row['project_content'], 0, 100);
 
             ?>
 
@@ -98,7 +98,7 @@
 
                     <div class="p-5">
 
-                        <div class="mb-3 font-normal text-left text-gray-700 dark:text-gray-400"><?php echo $project_content; ?></div>
+                        <div class="mb-3 font-normal text-left text-gray-700 dark:text-gray-400"><?php echo $project_content;?>...</div>
 
                         <?php echo "<a href='project.php?p_id=$project_id' class='inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>
                                 Explore 

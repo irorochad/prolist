@@ -15,7 +15,7 @@
         Find the correct data of a crypto project here.
       </p>
       <!-- Search and Button -->
-      <form method="GET" action="./searchresult.php">
+      <form method="GET" action="./search.php">
         <label for="searchtab" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300">Search</label>
         <div class="relative drop-shadow-2xl md:w-2/3">
           <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
