@@ -662,22 +662,6 @@ video {
   z-index: 40;
 }
 
-.col-start-1{
-  grid-column-start: 1;
-}
-
-.col-start-4{
-  grid-column-start: 4;
-}
-
-.col-end-3{
-  grid-column-end: 3;
-}
-
-.col-end-5{
-  grid-column-end: 5;
-}
-
 .mx-auto{
   margin-left: auto;
   margin-right: auto;
@@ -753,8 +737,20 @@ video {
   margin-right: 0.75rem;
 }
 
+.ml-5{
+  margin-left: 1.25rem;
+}
+
 .mb-4{
   margin-bottom: 1rem;
+}
+
+.mt-5{
+  margin-top: 1.25rem;
+}
+
+.ml-3{
+  margin-left: 0.75rem;
 }
 
 .mb-6{
@@ -763,22 +759,6 @@ video {
 
 .mt-4{
   margin-top: 1rem;
-}
-
-.mt-5{
-  margin-top: 1.25rem;
-}
-
-.ml-5{
-  margin-left: 1.25rem;
-}
-
-.ml-1{
-  margin-left: 0.25rem;
-}
-
-.ml-3{
-  margin-left: 0.75rem;
 }
 
 .block{
@@ -1001,18 +981,6 @@ video {
   margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
-.space-x-3 > :not([hidden]) ~ :not([hidden]){
-  --tw-space-x-reverse: 0;
-  margin-right: calc(0.75rem * var(--tw-space-x-reverse));
-  margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
-}
-
-.space-x-4 > :not([hidden]) ~ :not([hidden]){
-  --tw-space-x-reverse: 0;
-  margin-right: calc(1rem * var(--tw-space-x-reverse));
-  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
-}
-
 .self-end{
   align-self: flex-end;
 }
@@ -1099,11 +1067,6 @@ video {
   background-color: rgb(30 41 59 / var(--tw-bg-opacity));
 }
 
-.bg-slate-300{
-  --tw-bg-opacity: 1;
-  background-color: rgb(203 213 225 / var(--tw-bg-opacity));
-}
-
 .bg-gray-100{
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
@@ -1116,11 +1079,6 @@ video {
 
 .bg-transparent{
   background-color: transparent;
-}
-
-.bg-slate-100{
-  --tw-bg-opacity: 1;
-  background-color: rgb(241 245 249 / var(--tw-bg-opacity));
 }
 
 .p-4{
@@ -1346,16 +1304,6 @@ video {
 .text-blue-600{
   --tw-text-opacity: 1;
   color: rgb(37 99 235 / var(--tw-text-opacity));
-}
-
-.text-blue-500{
-  --tw-text-opacity: 1;
-  color: rgb(59 130 246 / var(--tw-text-opacity));
-}
-
-.text-\[\#5A2BE0\]{
-  --tw-text-opacity: 1;
-  color: rgb(90 43 224 / var(--tw-text-opacity));
 }
 
 .shadow-md{
@@ -1678,14 +1626,6 @@ video {
     grid-column-end: 5;
   }
 
-  .md\:float-right{
-    float: right;
-  }
-
-  .md\:float-left{
-    float: left;
-  }
-
   .md\:mt-0{
     margin-top: 0px;
   }
@@ -1740,14 +1680,6 @@ video {
 
   .md\:w-full{
     width: 100%;
-  }
-
-  .md\:w-4\/5{
-    width: 80%;
-  }
-
-  .md\:w-3\/5{
-    width: 60%;
   }
 
   .md\:min-w-\[50\%\]{
