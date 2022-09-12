@@ -1,15 +1,11 @@
-<!-- Include Db Connections and db functions -->
-<?php include "./includes/db/db.inc.php"; ?>
-
-<?php include "./includes/db/db.func.inc.php"; ?>
-<!-- End Db Connections and functions -->
-
 <?php include "./includes/header.inc.php"; ?>
-
 <!-- Navbar -->
 <?php include "./includes/navbar.inc.php"; ?>
 <!-- End Navbar -->
 
+<!-- Function -->
+<?php include "function.php" ?>
+<!-- End Functions -->
 
 <section id="mainexplore" class="bg-[#F5F8FF] dark:bg-slate-900">
 
@@ -79,7 +75,7 @@
             <?php
 
             if (isset($_GET['searchBTN'])) {
-                $searchData = $_GET['SearchValue'];
+                $searchData = mysqli_real_escape_string($db_connection, $_GET['SearchValue']);
                 searchResult();
             }
 
