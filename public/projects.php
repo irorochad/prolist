@@ -70,7 +70,7 @@ if (!isset($_GET['p_slug'])) { ?>
             while ($row = mysqli_fetch_assoc($fetch_all_posts_data)) {
                 $project_id = $row['id'];
                 $project_name = $row['project_name'];
-                $project_slug = $row['slug_url'];
+                $slugUrl = $row['slug_url'];
                 $project_logo = $row['project_logo'];
                 $project_content = substr($row['project_content'], 0, 100);
             ?>
@@ -89,7 +89,7 @@ if (!isset($_GET['p_slug'])) { ?>
 
                         <div class="mb-3 font-normal text-left text-gray-700 dark:text-gray-400"><?php echo $project_content; ?>...</div>
 
-                        <a href="<?php echo "?p_slug=" . getSlugUrl($project_name); ?>" class='inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>
+                        <a href="<?php echo "projects?p_slug=" . $slugUrl; ?>" class='inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>
                             Explore
                             <svg aria-hidden='true' class='ml-2 -mr-1 w-4 h-4' fill='currentColor' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'>
                                 <path fill-rule='evenodd' d='M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z' clip-rule='evenodd'></path>
@@ -112,7 +112,7 @@ if (!isset($_GET['p_slug'])) { ?>
     $check_for_project = mysqli_query($db_connection, $query);
 
     if (mysqli_num_rows($check_for_project) <= 0) {
-        header("Location: prolist/public/includes/errors/404");
+        echo "No PROJECTs yet, please try again!";
     } else {
         projectIsListed();
     }
