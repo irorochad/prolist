@@ -20,13 +20,12 @@
       </button>
       <div class="py-2 hidden md:block">
         <a href="./login.php" class="text-gray-800 dark:text-gray-100">Login</a>
-        <a href="./register" class="ml-2 p-3 px-6 pt-2  rounded-full baseline font-semibold text-white bg-brandBlue">List for Free</a>
+        <a href="./register" class="ml-2 p-2 px-2 pt-2 rounded-lg baseline font-semibold text-white bg-brandBlue">List for Free</a>
       </div>
     </div> <!-- End Topbar Menu -->
 
-    <div class="">
-      <hr class="my-1 border-gray-200 sm:mx-auto dark:border-gray-700">
-    </div>
+      <hr class="mb-3 border-gray-200 sm:mx-auto dark:border-gray-700">
+
     <!-- Start Main Menu -->
     <div class="hidden md:block bg-white dark:bg-slate-800 py-2 px-4">
       <div class=" mx-auto flex items-center justify-between">
