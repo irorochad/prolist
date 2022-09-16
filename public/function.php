@@ -26,7 +26,7 @@ function searchResult()
     <?php
     } else {
         while ($row = mysqli_fetch_assoc($fetch_all_posts_data)) {
-            $project_logo = $row['project_logo'];
+            $projectLogo = $row['project_logo'];
             $project_name = $row['project_name'];
             $project_content = substr($row['project_content'], 0, 100);
             $slugUrl = $row['slug_url'];
@@ -35,11 +35,11 @@ function searchResult()
 
     ?>
 
-        <div class="max-w-sm md:min-w-[30%] mx-auto h-fit w-fit bg-white rounded-lg border border-gray-200 shadow-md  dark:bg-gray-800 dark:border-gray-700">
+        <div class="max-w-sm md:min-w-[30%] mx-auto h-fit w-fit mb-4 md:mb-0 bg-white rounded-lg border border-gray-200 shadow-md  dark:bg-gray-800 dark:border-gray-700">
 
             <div class="flex flex-row justify-between items-center">
 
-                <?php echo "<img class='w-1/3' src='./assets/img/$project_logo' alt='LOGO'>" ?>
+                <?php echo "<img class='p-3 w-1/3 h-24 rounded-full shadow-lg' src='/prolist_admin/public/assets/img/static/$projectLogo' alt='LOGO'>" ?>
 
                 <h5 class="mb-2 text-2xl font-bold  text-gray-800 dark:text-gray-100  mr-5"><?php echo $project_name; ?></h5>
 
@@ -94,7 +94,7 @@ function projectIsListed()
     $fetch_project_data = mysqli_query($db_connection, $query);
 
     while ($row = mysqli_fetch_assoc($fetch_project_data)) {
-        $project_logo = $row['project_logo'];
+        $projectLogo = $row['project_logo'];
         $project_name = $row['project_name'];
         $project_content = $row['project_content'];
         $categories = $row['categories'];
@@ -109,7 +109,7 @@ function projectIsListed()
                 <!-- Left Header -->
                 <div class="flex justify-start items-center w-full">
 
-                    <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/8616.png" class="w-1/2 md:w-1/3" alt="Logo" />
+                <?php echo "<img class='p-3 w-1/3 h-24 rounded-full shadow-lg' src='/prolist_admin/public/assets/img/static/$projectLogo' alt='LOGO'>" ?>
 
                     <div class="flex flex-col pl-4 text-gray-800 dark:text-gray-100">
                         <h1 class="md:text-4xl font-bold"><?php echo $project_name; ?></h1>
@@ -142,9 +142,9 @@ function projectIsListed()
             <!-- Left Item -->
             <div class="flex flex-col md:col-start-1 md:col-end-3 w-full text-left text-gray-800 dark:text-gray-200 p-4">
                 <h1 class="text-3xl md:text-4xl font-bold font-Montserrat mb-4">About Project</h1>
-                <p class="">
+                <div class="">
                     <?php echo $project_content; ?>
-                </p>
+                </div>
             </div>
             <!-- Right Item -->
             <div class="flex flex-col md:col-start-4 md:col-end-5 w-full ">
@@ -189,7 +189,7 @@ function isFeatured()
     <div class="owl-carousel ">
         <?php
         while ($row = mysqli_fetch_assoc($featured_project)) {
-            $project_logo = $row['project_logo'];
+            $projectLogo = $row['project_logo'];
             $project_name = $row['project_name'];
             $project_content = substr($row['project_content'], 0, 100);
             $slugUrl = $row['slug_url']; ?>
@@ -198,7 +198,7 @@ function isFeatured()
             <div class="max-w-sm mx-auto mb-5 md:mr-5  h-fit w-fit bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                 <div class="flex flex-row justify-between items-center">
 
-                    <img class=" w-1/5" src="./assets/img/coinprofitLogo.png" alt="LOGO">
+                <?php echo "<img class='p-3 w-1/3 h-24 rounded-full shadow-lg' src='/prolist_admin/public/assets/img/static/$projectLogo' alt='LOGO'>" ?>
                     <h5 class="mb-2 text-2xl font-bold  text-gray-800 dark:text-gray-100  mr-5"><?php echo $project_name; ?></h5>
 
                 </div>

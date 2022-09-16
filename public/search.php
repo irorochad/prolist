@@ -12,8 +12,6 @@
     <div class="container mx-auto flex flex-col-reverse md:flex-row px-4 pt-10 md:pt-20">
         <!-- Left Item Search Box -->
         <div class="flex flex-col mx-auto md:w-1/5">
-
-
             <div class="p-4 max-w-sm md:min-w-[50%]  bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
                 <form class="space-y-6" action="./search" method="GET">
                     <h5 class="text-xl font-medium text-gray-900 dark:text-white">Search Filter</h5>

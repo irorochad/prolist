@@ -29,7 +29,7 @@ if (!isset($_GET['p_slug'])) { ?>
                 $project_id = $row['id'];
                 $project_name = $row['project_name'];
                 $slugUrl = $row['slug_url'];
-                $project_logo = $row['project_logo'];
+                $projectLogo = $row['project_logo'];
                 $project_content = substr($row['project_content'], 0, 100);
             ?>
 
@@ -37,7 +37,7 @@ if (!isset($_GET['p_slug'])) { ?>
 
                     <div class="flex flex-row justify-between items-center">
 
-                        <?php echo "<img class='w-1/3' src='./assets/img/$project_logo' alt='LOGO'>" ?>
+                    <?php echo "<img class='p-3 w-1/3 h-24 rounded-full shadow-lg' src='/prolist_admin/public/assets/img/static/$projectLogo' alt='LOGO'>" ?>
 
                         <h5 class="mb-2 text-2xl font-bold  text-gray-800 dark:text-gray-100  mr-5"><?php echo $project_name; ?></h5>
 
