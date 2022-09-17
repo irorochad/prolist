@@ -1,4 +1,3 @@
-
 RewriteEngine On
     
     # Redirect From Public folder to the index
@@ -20,5 +19,3 @@ RewriteEngine On
 
     #SEO Friendly URLs on Project and Category pages
     # RewriteRule ^projects/(\d+)$ projects.php?p_slug=$1 [NC,L]
-
-
