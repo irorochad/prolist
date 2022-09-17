@@ -35,7 +35,7 @@ function searchResult()
 
     ?>
 
-        <div class="max-w-sm md:min-w-[30%] mx-auto h-fit w-fit mb-4 md:mb-0 bg-white rounded-lg border border-gray-200 shadow-md  dark:bg-gray-800 dark:border-gray-700">
+        <div class="max-w-sm md:min-w-[30%] mx-auto h-fit w-fit mb-4 md:mb-0 bg-white rounded-lg border hover:border-gray-200 hover:shadow-lg dark:bg-gray-800 dark:border-gray-700">
 
             <div class="flex flex-row justify-between items-center">
 
@@ -47,7 +47,7 @@ function searchResult()
 
             <div class="p-5">
 
-                <div class="mb-3 font-normal text-left text-gray-700 dark:text-gray-400"><?php echo $project_content; ?>...</div>
+                <div class="mb-3 font-normal text-left font-Poppins text-gray-700 dark:text-gray-400"><?php echo $project_content; ?>...</div>
 
                 <a href="<?php echo "projects?p_slug=" . $slugUrl; ?>" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     Explore
@@ -110,7 +110,7 @@ function projectIsListed()
                 <div class="flex justify-start items-center w-full">
                     <!-- Logo Container -->
                     
-                        <?php echo "<img class='p-3 w-1/3  rounded-full shadow-xl' src='/prolist_admin/public/assets/img/static/$projectLogo' alt='LOGO'>" ?>
+                        <?php echo "<img class='p-3 w-1/3 md:w-1/5 rounded-full shadow-xl' src='/prolist_admin/public/assets/img/static/$projectLogo' alt='LOGO'>" ?>
                     
                     <!-- End Logo Container -->
                     <div class="flex flex-col pl-4 text-gray-800 dark:text-gray-100">
@@ -142,16 +142,16 @@ function projectIsListed()
         <!-- Project Hero-->
         <div class="grid grid-cols-1 md:grid-cols-4 mt-10 mb-10 px-4 mx-auto">
             <!-- Left Item -->
-            <div class="flex flex-col md:col-start-1 md:col-end-3 w-full text-left text-gray-800 dark:text-gray-200 p-4">
-                <h1 class="text-3xl md:text-4xl font-bold font-Montserrat mb-4">About Project</h1>
-                <div class="">
+            <div class="flex flex-col md:col-start-1 md:col-end-3 w-full text-left p-4">
+                <h1 class="text-3xl md:text-2xl font-bold font-Poppins mb-4 text-gray-800 dark:text-gray-200">About Project</h1>
+                <div class="font-Poppins text-gray-600 dark:text-gray-200">
                     <?php echo $project_content; ?>
                 </div>
             </div>
             <!-- Right Item -->
             <div class="flex flex-col md:col-start-4 md:col-end-5 w-full ">
-                <div class="text-gray-800 dark:text-gray-200 drop-shadow-md bg-white dark:bg-[#101313] rounded-md p-4">
-                    <h1 class="text-3xl md:text-4xl font-bold font-Montserrat md:text-right">Useful Data</h1>
+                <div class="drop-shadow-md bg-white dark:bg-[#101313] text-gray-600 dark:text-gray-200 rounded-md p-4">
+                    <h1 class="text-gray-800 dark:text-gray-200 text-3xl md:text-2xl font-bold font-Poppins md:text-right">Useful Data</h1>
                     <div class="flex flex-row justify-between mt-5">
                         <p>Website:</p>
                         <?php echo "<p> <a href='http://$project_website' target='_blank' class='inline-flex items-center  text-blue-600 dark:text-blue-500 hover:underline'>
@@ -162,7 +162,7 @@ function projectIsListed()
                         </svg>
                     </a></p>" ?>
                     </div>
-                    <div class="flex flex-row justify-between font-Poppins mt-5">
+                    <div class="flex flex-row justify-between font-Poppins  mt-5">
                         <h1 class="">Founded:</h1>
                         <?php echo "<P>$project_dateFounded</P>"; ?>
                     </div>
@@ -197,7 +197,7 @@ function isFeatured()
             $slugUrl = $row['slug_url']; ?>
 
 
-            <div class="max-w-sm mx-auto mb-5 md:mr-5  h-fit w-fit bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+            <div class="max-w-sm mx-auto mb-5 md:mr-5  h-fit w-fit bg-white rounded-lg border hover:border-gray-200 hover:shadow-lg dark:bg-gray-800 dark:border-gray-700">
                 <div class="flex flex-row justify-between items-center">
                     <?php echo "<img class='p-3 w-1/3  rounded-full shadow-xl' src='/prolist_admin/public/assets/img/static/$projectLogo' alt='LOGO'>" ?>
                     <h5 class="mb-2 text-2xl font-bold  text-gray-800 dark:text-gray-100  mr-5"><?php echo $project_name; ?></h5>
@@ -205,7 +205,7 @@ function isFeatured()
                 </div>
 
                 <div class="p-5">
-                    <div class="mb-3 font-normal text-left text-gray-700 dark:text-gray-400"><?php echo $project_content; ?>...</div>
+                    <div class="mb-3 font-normal text-left font-Poppins text-gray-700 dark:text-gray-400"><?php echo $project_content; ?>...</div>
                     <a href="<?php echo "projects?p_slug=" . $slugUrl; ?>" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         Read more
                         <svg aria-hidden="true" class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
