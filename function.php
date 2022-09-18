@@ -39,7 +39,7 @@ function searchResult()
 
             <div class="flex flex-row justify-between items-center">
 
-                <?php echo "<img class='p-3 w-1/3 h-24 rounded-full shadow-lg' src='/prolist_admin/public/assets/img/static/$projectLogo' alt='LOGO'>" ?>
+                <?php echo "<img class='p-3 w-1/3 rounded-full shadow-lg' src='/prolist_admin/public/assets/img/static/$projectLogo' alt='LOGO'>" ?>
 
                 <h5 class="mb-2 text-2xl font-bold  text-gray-800 dark:text-gray-100  mr-5"><?php echo $project_name; ?></h5>
 
@@ -49,7 +49,7 @@ function searchResult()
 
                 <div class="mb-3 font-normal text-left font-Poppins text-gray-700 dark:text-gray-400"><?php echo $project_content; ?>...</div>
 
-                <a href="<?php echo "projects?p_slug=" . $slugUrl; ?>" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                <a href="<?php echo "projects/" . $slugUrl; ?>" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     Explore
                     <svg aria-hidden="true" class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
@@ -67,12 +67,12 @@ function searchResult()
 function projectNotFound()
 { ?>
     <div class="container md:w-1/2 mx-auto p-10">
-        <img class="" src="./assets/img/404Img.png" />
+        <img class="" src="../assets/img/404Img.png" />
         <div class="flex flex-col items-center">
             <h3 class="mb-5 font-bold text-center text-gray-700 dark:text-gray-400 ">
                 No, this is not an issue, it simply means the project you&apos;re searching for is no longer available or wasn&apos;t at all.
             </h3>
-            <a href="./projects" class=" p-4  rounded-lg baseline font-semibold text-white bg-brandBlue">Explore More Projects</a>
+            <a href="/prolist/projects" class=" p-4  rounded-lg baseline font-semibold text-white bg-brandBlue">Explore More Projects</a>
         </div>
 
     </div>
@@ -206,7 +206,7 @@ function isFeatured()
 
                 <div class="p-5">
                     <div class="mb-3 font-normal text-left font-Poppins text-gray-700 dark:text-gray-400"><?php echo $project_content; ?>...</div>
-                    <a href="<?php echo "projects?p_slug=" . $slugUrl; ?>" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    <a href="<?php echo "projects/" . $slugUrl; ?>" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         Read more
                         <svg aria-hidden="true" class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>

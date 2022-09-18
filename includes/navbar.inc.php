@@ -19,8 +19,8 @@
         </svg>
       </button>
       <div class="py-2 hidden md:block">
-        <a href="./login.php" class="text-gray-800 dark:text-gray-100">Login</a>
-        <a href="./register" class="ml-2 p-2 px-2 pt-2 rounded-lg baseline font-semibold text-white bg-brandBlue">List for Free</a>
+        <a href="/prolist/login.php" class="text-gray-800 dark:text-gray-100">Login</a>
+        <a href="/prolist/register" class="ml-2 p-2 px-2 pt-2 rounded-lg baseline font-semibold text-white bg-brandBlue">List for Free</a>
       </div>
     </div> <!-- End Topbar Menu -->
 
@@ -36,7 +36,7 @@
             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-gray-100">Listing</span>
           </a>
           <div class="space-x-6 md:flex">
-            <a href="./projects" class="text-gray-800 dark:text-gray-100">Explore Projects</a>
+            <a href="/prolist/projects" class="text-gray-800 dark:text-gray-100">Explore Projects</a>
             <a href="#" class="text-gray-800 dark:text-gray-100">Explore Jobs</a>
             <a href="#" class="text-gray-800 dark:text-gray-100">Resources</a>
           </div>

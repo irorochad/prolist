@@ -1,19 +1,22 @@
 RewriteEngine On
     
-    # Remove the .php extension
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME}\.php -f 
-    RewriteRule ^(.*)$ $1.php
 
-    # Remove slahes / if not a folder
+    # Remove slashes / if not a folder
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_URI} (.+)/$
     RewriteRule ^ %1 [L,R=301] [L]
 
+    # Remove the .php extension
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}\.php -f 
+    RewriteRule ^(.*)$ $1.php 
 
     #SEO Friendly URLs on Project and Category pages
-    RewriteRule ^projects/(\d+)$ projects?p_slug=$1 [NC,L]
+    RewriteRule ^projects/([a-zA-Z0-9-]+) projects.php?p_slug=$1 [L]
 
-    # RewriteRule ^projects/([A-Za-z0-9-]+?)/?$ /projects?p_slug=$1 [NC, L]
-    # RewriteRule ^projects/([A-Za-z0-9-]+?)/?$ /projects.php?p_slug=$1 [NC, L]
-    # RewriteRule ^projects/([A-Za-z0-9-]+?)/?$ /projects.php?p_slug=$1 [NC, L]
+
+
+    # 404 Errors Without Redirecting
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ /prolist/includes/errors/404.php [L]
