@@ -1,11 +1,5 @@
 RewriteEngine On
     
-    # Redirect From Public folder to the index
-    RewriteBase /prolist/
-    RewriteCond %{THE_REQUEST} /public/([^\s?]*) [NC]
-    RewriteRule ^ %1 [L,NE,R=302]
-    RewriteRule ^((?!public/).*)$ public/$1 [L,NC]
-
     # Remove the .php extension
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME}\.php -f 
@@ -18,4 +12,8 @@ RewriteEngine On
 
 
     #SEO Friendly URLs on Project and Category pages
-    # RewriteRule ^projects/(\d+)$ projects.php?p_slug=$1 [NC,L]
+    RewriteRule ^projects/(\d+)$ projects?p_slug=$1 [NC,L]
+
+    # RewriteRule ^projects/([A-Za-z0-9-]+?)/?$ /projects?p_slug=$1 [NC, L]
+    # RewriteRule ^projects/([A-Za-z0-9-]+?)/?$ /projects.php?p_slug=$1 [NC, L]
+    # RewriteRule ^projects/([A-Za-z0-9-]+?)/?$ /projects.php?p_slug=$1 [NC, L]

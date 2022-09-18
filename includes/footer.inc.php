@@ -84,10 +84,10 @@
 
 
 
-<script src="prolist/public/assets/js/jquery-3.6.0.min.js"></script>
+<script src="./assets/js/jquery-3.6.0.min.js"></script>
 
-<script src="prolist/public/assets/js/owl.carousel.min.js"></script>
-<script src="prolist/public/assets/js/main.js"></script>
+<script src="./assets/js/owl.carousel.min.js"></script>
+<script src="./assets/js/main.js"></script>
 
 </body>
 
