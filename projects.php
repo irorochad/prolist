@@ -1,3 +1,9 @@
+<?php 
+  $page_title = "projects - prolists";
+  $page_description = "Prolist helps you find and discover crypto projects with accurate informations";
+  $page_keywords = "crypto, crypto listing, crypto projects, find new crypto projects, btc";
+?>
+
 <!-- Include Db Connections and db functions -->
 <?php include "./includes/db/db.inc.php";
 include "function.php";
@@ -71,7 +77,7 @@ if (!isset($_GET['p_slug'])) { ?>
 
     if (mysqli_num_rows($check_for_project) <= 0) {
         projectNotFound();
-    } else {
+    } else { 
         projectIsListed();
     }
 }

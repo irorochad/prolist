@@ -1,3 +1,9 @@
+<?php 
+  $page_title = "Register an Account - prolists";
+  $page_description = "Prolist helps you find and discover crypto projects with accurate informations";
+  $page_keywords = "crypto, crypto listing, crypto projects, find new crypto projects, btc";
+?>
+
 <?php include "./includes/header.inc.php" ?>
 <?php include "./includes/navbar.inc.php" ?>
 

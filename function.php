@@ -1,4 +1,5 @@
 <?php
+
 include "./includes/db/db.inc.php";
 
 
@@ -91,8 +92,11 @@ function projectIsListed()
     $the_project_slug = $_GET['p_slug'];
     $query = "SELECT * FROM projects_info WHERE `slug_url` = '$the_project_slug' ";
 
+
+
     $fetch_project_data = mysqli_query($db_connection, $query);
 
+        
     while ($row = mysqli_fetch_assoc($fetch_project_data)) {
         $projectLogo = $row['project_logo'];
         $project_name = $row['project_name'];
