@@ -72,7 +72,7 @@ if (!isset($_GET['p_slug'])) { ?>
     // Following url gets followed by a / returns the project main page.
 
     $the_project_slug = $_GET['p_slug'];
-    $query = "SELECT * FROM projects_info WHERE `slug_url` = '$the_project_slug' ";
+    $query = "SELECT * FROM projects_info WHERE `slug_url` = '$the_project_slug'  AND `project_status` = 'Approved' ";
     $check_for_project = mysqli_query($db_connection, $query);
 
     if (mysqli_num_rows($check_for_project) <= 0) {
