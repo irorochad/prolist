@@ -57,11 +57,11 @@ themeToggleBtn.addEventListener("click", function () {
 // End DarkMode Toggle.
 
 
-const menuBTN = document.getElementById("menu-btn");
-const mobileMenu = document.getElementById("menu");
+// const menuBTN = document.getElementById("menu-btn");
+// const mobileMenu = document.getElementById("menu");
 
-menuBTN.addEventListener("click", () => {
-  menuBTN.classList.toggle("open");
-  mobileMenu.classList.toggle("flex");
-  mobileMenu.classList.toggle("hidden");
-});
+// menuBTN.addEventListener("click", () => {
+//   menuBTN.classList.toggle("open");
+//   mobileMenu.classList.toggle("flex");
+//   mobileMenu.classList.toggle("hidden");
+// });
