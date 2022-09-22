@@ -1,4 +1,4 @@
-<?php
+<?php ob_start();
 
 include "./includes/db/db.inc.php";
 
@@ -96,7 +96,7 @@ function projectIsListed()
 
     $fetch_project_data = mysqli_query($db_connection, $query);
 
-        
+
     while ($row = mysqli_fetch_assoc($fetch_project_data)) {
         $projectLogo = $row['project_logo'];
         $project_name = $row['project_name'];
@@ -113,9 +113,9 @@ function projectIsListed()
                 <!-- Left Header -->
                 <div class="flex justify-start items-center w-full">
                     <!-- Logo Container -->
-                    
-                        <?php echo "<img class='p-3 w-1/3 md:w-1/5 rounded-full shadow-xl' src='/prolist_admin/public/assets/img/static/$projectLogo' alt='LOGO'>" ?>
-                    
+
+                    <?php echo "<img class='p-3 w-1/3 md:w-1/5 rounded-full shadow-xl' src='/prolist_admin/public/assets/img/static/$projectLogo' alt='LOGO'>" ?>
+
                     <!-- End Logo Container -->
                     <div class="flex flex-col pl-4 text-gray-800 dark:text-gray-100">
                         <h1 class="md:text-4xl font-bold"><?php echo $project_name; ?></h1>
@@ -222,3 +222,41 @@ function isFeatured()
         <div><?php
             }
                 ?>
+
+<?php
+
+    function username_exists($username)
+
+        {
+            global $db_connection;
+
+            $usernameQuery = "SELECT username FROM users WHERE `username` = '$username'";
+            $runUsernameQuery = mysqli_query($db_connection, $usernameQuery);
+
+            if (mysqli_num_rows($runUsernameQuery) > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+
+    // check if email already exsits
+
+    function email_exists($emailId)
+
+    {
+        global $db_connection;
+
+        $emailQuery = "SELECT email FROM users WHERE `email` = '$emailId'";
+        $runemailQuery = mysqli_query($db_connection, $emailQuery);
+
+        if (mysqli_num_rows($runemailQuery) > 0) {
+            $_SESSION['message'] = "Somehow, that email is taken";
+        }
+    }
+
+
+
+
+?>

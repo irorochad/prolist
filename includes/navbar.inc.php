@@ -19,7 +19,7 @@
         </svg>
       </button>
       <div class="py-2 hidden md:block">
-        <a href="/prolist/login.php" class="text-gray-800 dark:text-gray-100">Login</a>
+        <a href="/prolist/login" class="text-gray-800 dark:text-gray-100">Login</a>
         <a href="/prolist/register" class="ml-2 p-2 px-2 pt-2 rounded-lg baseline font-semibold text-white bg-brandBlue">List for Free</a>
       </div>
     </div> <!-- End Topbar Menu -->
