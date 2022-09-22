@@ -23,14 +23,16 @@ module.exports = {
         xl: "1280px",
       },
       fontFamily: {
-        'Poppins': 'Poppins, sans-serif',
-        'Montserrat': 'Montserrat, sans-serif',
-        
+        Poppins: "Poppins, sans-serif",
+        Montserrat: "Montserrat, sans-serif",
       },
       widths: {
-        '30': '5rem',
-      }
+        30: "5rem",
+      },
     },
+  },
+  variants: {
+    display: ["group-hover"],
   },
   plugins: [],
 };

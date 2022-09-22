@@ -22,7 +22,7 @@
     <meta property="og:url" content="https://example.com">
 
   <link rel="stylesheet" href="/prolist/assets/tailscss/output.css" />
-
+  <link rel="stylesheet" href="/prolist/assets/css/index.css" />
 
 </head>
 
