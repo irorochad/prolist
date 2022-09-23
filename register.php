@@ -13,8 +13,25 @@ include "function.php"; ?>
 <!-- php code to register -->
 <?php
 if (isset($_POST['regBtn'])) {
- echo "It's working...";
+    $name =  mysqli_real_escape_string($db_connection, $_POST['name']);
+    $email =  mysqli_real_escape_string($db_connection, $_POST['emailId']);
+    $passwordID =  mysqli_real_escape_string($db_connection, $_POST['passwordID']);
+    $passwordConfirm =  mysqli_real_escape_string($db_connection, $_POST['passwordConfirm']);
 
+    if (!empty($name) && !empty($email) && !empty($passwordID) && !empty($passwordConfirm)) {
+        $hashedPassword = password_hash($passwordID, PASSWORD_BCRYPT, array('cost'  => 12));
+
+        $queryInsert = "INSERT INTO users(name, email, password) VALUES('{$name}', '{$email}', '{$hashedPassword}')";
+        $runInsert = mysqli_query($db_connection, $queryInsert);
+        if (!$runInsert) {
+            die("Something went wrong");
+        }
+        $message = "Account Created";
+    } else {
+        $message = "All fields are required";
+    }
+} else {
+    $message = "";
 }
 ?>
 <!-- eNd php code to register -->
@@ -28,12 +45,14 @@ if (isset($_POST['regBtn'])) {
             <a href="./login" class="font-medium text-indigo-600 border-b border-indigo-600"> Sign in to your account </a>
         </p>
     </div>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="w-full">
+
+    <form action="register" method="post" class="w-full">
+        <p class="text-center"><?php echo $message; ?></p>
         <div class="max-w-md w-full mx-auto bg-white dark:bg-[#77325f2d] rounded-lg p-7 space-y-7 ">
 
             <div class="flex flex-col">
-                <label class="text-sm font-bold text-gray-600 dark:text-gray-100  mb-1" for="username">Username *</label>
-                <input class="border rounded-md bg-white dark:bg-slate-300 px-3 py-2" type="text" name="username" id="username" placeholder="e.g: mrDoe" required />
+                <label class="text-sm font-bold text-gray-600 dark:text-gray-100  mb-1" for="name">Name *</label>
+                <input class="border rounded-md bg-white dark:bg-slate-300 px-3 py-2" type="text" name="name" id="name" placeholder="e.g: mrDoe" required />
             </div>
             <div class="flex flex-col">
                 <label class="text-sm font-bold text-gray-600 dark:text-gray-100  mb-1" for="email">Email Address *</label>
@@ -42,11 +61,11 @@ if (isset($_POST['regBtn'])) {
             </div>
             <div class="flex flex-col">
                 <label class="text-sm font-bold text-gray-600 dark:text-gray-100 mb-1" for="password">Password *</label>
-                <input class="border rounded-md bg-white dark:bg-slate-300 px-3 py-2" type="password" name="passwordID" id="password" placeholder="Enter your Password" required />
+                <input class="border rounded-md bg-white dark:bg-slate-300 px-3 py-2" type="password" name="passwordID" id="password" placeholder="Enter your Password" />
             </div>
             <div class="flex flex-col">
                 <label class="text-sm font-bold text-gray-600 dark:text-gray-100 mb-1" for="passwordconfirm">Password *</label>
-                <input class="border rounded-md bg-white dark:bg-slate-300 px-3 py-2" type="password" name="passwordConfirm" id="passwordconfirm" placeholder="Confirm your Password" required />
+                <input class="border rounded-md bg-white dark:bg-slate-300 px-3 py-2" type="password" name="passwordConfirm" id="passwordconfirm" placeholder="Confirm your Password" />
             </div>
             <div class="flex justify-between text-sm">
                 <div class="flex items-center space-x-2">

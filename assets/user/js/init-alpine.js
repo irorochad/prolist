@@ -7,13 +7,6 @@ function data() {
     closeSideMenu() {
       this.isSideMenuOpen = false;
     },
-    isNotificationsMenuOpen: false,
-    toggleNotificationsMenu() {
-      this.isNotificationsMenuOpen = !this.isNotificationsMenuOpen;
-    },
-    closeNotificationsMenu() {
-      this.isNotificationsMenuOpen = false;
-    },
     isProfileMenuOpen: false,
     toggleProfileMenu() {
       this.isProfileMenuOpen = !this.isProfileMenuOpen;
@@ -25,9 +18,6 @@ function data() {
     togglePagesMenu() {
       this.isPagesMenuOpen = !this.isPagesMenuOpen;
     },
-    isPagesMenuOpenTwo: false,
-    togglePagesMenuTwo() {
-      this.isPagesMenuOpenTwo = !this.isPagesMenuOpenTwo;
-    },
+    
   };
 }
