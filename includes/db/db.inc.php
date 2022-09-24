@@ -1,4 +1,4 @@
-<?php
+<?php ob_start();
 
 $db_connection = mysqli_connect("localhost", "root", "", "listing");
 

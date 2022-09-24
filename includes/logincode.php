@@ -21,6 +21,7 @@ if (isset($_POST['loginBtn'])) {
         $_SESSION['user_name'] = $db_name;
         $_SESSION['user_password'] = $db_password;
         $_SESSION['user_email'] = $db_email;
+        $_SESSION['user_role'] = $db_role;
         header("Location: ../account");
     } else {
         header("Location: ../login");

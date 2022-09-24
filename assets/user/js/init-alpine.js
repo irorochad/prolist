@@ -7,17 +7,16 @@ function data() {
     closeSideMenu() {
       this.isSideMenuOpen = false;
     },
-    isProfileMenuOpen: false,
-    toggleProfileMenu() {
-      this.isProfileMenuOpen = !this.isProfileMenuOpen;
-    },
-    closeProfileMenu() {
-      this.isProfileMenuOpen = false;
-    },
+    // isProfileMenuOpen: false,
+    // toggleProfileMenu() {
+    //   this.isProfileMenuOpen = !this.isProfileMenuOpen;
+    // },
+    // closeProfileMenu() {
+    //   this.isProfileMenuOpen = false;
+    // },
     isPagesMenuOpen: false,
     togglePagesMenu() {
       this.isPagesMenuOpen = !this.isPagesMenuOpen;
     },
-    
   };
 }

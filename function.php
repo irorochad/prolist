@@ -1,5 +1,4 @@
-<?php ob_start();
-
+<?php
 include "./includes/db/db.inc.php";
 
 
@@ -223,9 +222,9 @@ function isFeatured()
             }
                 ?>
 
-<?php
+        <?php
 
-    function username_exists($username)
+        function username_exists($username)
 
         {
             global $db_connection;
@@ -241,22 +240,21 @@ function isFeatured()
         }
 
 
-    // check if email already exsits
+        // check if email already exsits
 
-    function email_exists($emailId)
+        function email_exists($emailId)
 
-    {
-        global $db_connection;
+        {
+            global $db_connection;
 
-        $emailQuery = "SELECT email FROM users WHERE `email` = '$emailId'";
-        $runemailQuery = mysqli_query($db_connection, $emailQuery);
+            $emailQuery = "SELECT email FROM users WHERE `email` = '$emailId'";
+            $runemailQuery = mysqli_query($db_connection, $emailQuery);
 
-        if (mysqli_num_rows($runemailQuery) > 0) {
-            $_SESSION['message'] = "Somehow, that email is taken";
+            if (mysqli_num_rows($runemailQuery) > 0) {
+                $_SESSION['message'] = "Somehow, that email is taken";
+            }
         }
-    }
 
 
 
-
-?>
+        ?>

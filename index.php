@@ -98,6 +98,8 @@ include "function.php"; ?>
       <img src="assets/img/feature1.png" alt="An Explainer Image is supposed to be here." class="md:translate-x-20 md:-translate-y-13" />
     </div>
   </div>
+
+  
 </section> <!-- End Features Section -->
 
 <?php include "./includes/footer.inc.php"; ?>

@@ -1,6 +1,8 @@
 <?php include "./includes/header.inc.php";
 include "./includes/sidebar.inc.php";
-include "./includes/navbar.inc.php";?>
+include "./includes/navbar.inc.php";
+?>
+
 
 <?php 
 if(!isset($_SESSION['user_email']) && !isset($_SESSION['user_password'])){

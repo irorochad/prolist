@@ -21,8 +21,8 @@
             </ul>
 
             <div class="group inline-block relative md:w-1/5 md:ml-10">
-                <button class="inline-flex items-center">
-                    <img class="w-10 h-10 rounded-full" src="../assets/img/user/profileImg.jpg" alt="Rounded avatar">
+                <button class="inline-flex items-center"> 
+                    <img class="w-10 h-10 rounded-full" src="/prolist/assets/img/user/profileImg.jpg" alt="Rounded avatar">
                 </button>
                 <ul class="absolute hidden bg-gray-300 dark:bg-gray-700 pt-1 group-hover:block">
                     <li class="">
@@ -32,7 +32,7 @@
                         <a class="text-gray-600 dark:text-gray-100 py-2 hover:underline px-4 block whitespace-no-wrap" href="#">Two</a>
                     </li>
                     <li class="">
-                        <a class="rounded-b text-gray-600 dark:text-gray-100 hover:underline py-2 px-4 block whitespace-no-wrap" href="./logout">Logout</a>
+                        <a class="rounded-b text-gray-600 dark:text-gray-100 hover:underline py-2 px-4 block whitespace-no-wrap" href="/prolist/account/logout">Logout</a>
                     </li>
                 </ul>
             </div>
