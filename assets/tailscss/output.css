@@ -1565,6 +1565,25 @@ video {
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
+.text-dakrMode{
+  --tw-text-opacity: 1;
+  color: rgb(15 23 42 / var(--tw-text-opacity));
+}
+
+.text-red-800{
+  --tw-text-opacity: 1;
+  color: rgb(153 27 27 / var(--tw-text-opacity));
+}
+
+.underline{
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+}
+
+.underline-offset-1{
+  text-underline-offset: 1px;
+}
+
 .opacity-25{
   opacity: 0.25;
 }

@@ -284,6 +284,7 @@ function isFeatured()
 
             if (password_verify($password, $db_password)) {
 
+                $_SESSION['user_id'] = $$db_id;
                 $_SESSION['user_name'] = $db_name;
                 $_SESSION['user_password'] = $db_password;
                 $_SESSION['user_email'] = $db_email;

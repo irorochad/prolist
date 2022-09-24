@@ -72,12 +72,12 @@ if (isset($_POST['loginBtn'])) {
       <div class="flex flex-col">
         <label class="text-sm font-bold text-gray-600 mb-1" for="email">Email Address</label>
         <input class="border rounded-md bg-white dark:bg-slate-300 px-3 py-2" type="email" name="email" id="email" value="<?php echo isset($email) ? $email : '' ?>" placeholder="Enter your Email Address" />
-        <p><?php echo isset($errorMsg['email']) ? $errorMsg['email'] : '' ?></p>
+        <p class="text-red-700"><?php echo isset($errorMsg['email']) ? $errorMsg['email'] : '' ?></p>
       </div>
       <div class="flex flex-col">
         <label class="text-sm font-bold text-gray-600 mb-1" for="password">Password</label>
         <input class="border rounded-md bg-white dark:bg-slate-300 px-3 py-2" type="password" name="password" id="password" placeholder="Enter your Password" />
-        <p><?php echo isset($errorMsg['password']) ? $errorMsg['password'] : '' ?></p>
+        <p class="text-red-700"><?php echo isset($errorMsg['password']) ? $errorMsg['password'] : '' ?></p>
       </div>
       <div class="flex justify-between text-sm">
         <div class="flex items-center space-x-2">
