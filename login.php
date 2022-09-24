@@ -11,8 +11,51 @@ include "function.php"; ?>
 
 <?php
 if (isset($_POST['loginBtn'])) {
-  user_login($_POST['email'], $_POST['password']);
-} ?>
+  // user_login($_POST['email'], $_POST['password']);
+
+  $email = mysqli_real_escape_string($db_connection, $_POST['email']);
+  $password = mysqli_real_escape_string($db_connection, $_POST['password']);
+
+  $errorMsg = [
+    'email' => '',
+    'password' => ''
+  ];
+
+  // check if the email doesn't exsits
+  if (!email_exists($email)) {
+    $errorMsg['email'] = 'We couldn\'t find that email. ' . " " . "<a href='register'>Creat Account here</a>";
+  }
+
+  // check if password is not correct
+
+ 
+
+  // check if email is empty
+  if ($email == '') {
+    $errorMsg['email'] = 'Email is required!';
+  }
+
+  // check if password is empty
+  if ($password == '') {
+    $errorMsg['password'] = 'Password is required!';
+  }
+
+
+
+  // Loop through the forom if there's any error.
+  foreach ($errorMsg as $key => $value) {
+    if (empty($value)) {
+      unset($errorMsg[$key]);
+    }
+
+    if (empty($errorMsg)) {
+      user_login($_POST['email'], $_POST['password']);
+      // user_login($emailId, $password);
+    }
+  }
+}
+
+?>
 
 
 <main class="min-h-screen flex flex-col items-center justify-center bg-gray-50 dark:bg-slate-900 space-y-10 py-12 px-4 sm:px-6 lg:px-8">
@@ -28,11 +71,13 @@ if (isset($_POST['loginBtn'])) {
 
       <div class="flex flex-col">
         <label class="text-sm font-bold text-gray-600 mb-1" for="email">Email Address</label>
-        <input class="border rounded-md bg-white dark:bg-slate-300 px-3 py-2" type="text" name="email" id="email" placeholder="Enter your Email Address" />
+        <input class="border rounded-md bg-white dark:bg-slate-300 px-3 py-2" type="email" name="email" id="email" value="<?php echo isset($email) ? $email : '' ?>" placeholder="Enter your Email Address" />
+        <p><?php echo isset($errorMsg['email']) ? $errorMsg['email'] : '' ?></p>
       </div>
       <div class="flex flex-col">
         <label class="text-sm font-bold text-gray-600 mb-1" for="password">Password</label>
         <input class="border rounded-md bg-white dark:bg-slate-300 px-3 py-2" type="password" name="password" id="password" placeholder="Enter your Password" />
+        <p><?php echo isset($errorMsg['password']) ? $errorMsg['password'] : '' ?></p>
       </div>
       <div class="flex justify-between text-sm">
         <div class="flex items-center space-x-2">

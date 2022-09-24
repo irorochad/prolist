@@ -223,7 +223,9 @@ function isFeatured()
                 ?>
 
         <?php
+
         // User Registration
+
         // check if email already exsits
 
         function email_exists($email)
@@ -256,10 +258,9 @@ function isFeatured()
             if (!$runInsert) {
                 die("Something went wrong");
             }
-            
-
         }
         // Functons to login user
+
         function user_login($emailId, $password)
         {
 
@@ -268,7 +269,7 @@ function isFeatured()
             $emailId = mysqli_real_escape_string($db_connection, $_POST['email']);
             $password = mysqli_real_escape_string($db_connection, $_POST['password']);
 
-            $query = "SELECT * FROM users WHERE `email` = '$emailId'";
+            $query = "SELECT * FROM users WHERE `email` = '{$emailId}' ";
             $queryRun = mysqli_query($db_connection, $query);
 
             while ($row = mysqli_fetch_array($queryRun)) {
@@ -278,16 +279,22 @@ function isFeatured()
                 $db_email = $row['email'];
                 $db_role = $row['role'];
             }
+
             // Check if the inputed password matched with the password in the database.
 
             if (password_verify($password, $db_password)) {
+
                 $_SESSION['user_name'] = $db_name;
                 $_SESSION['user_password'] = $db_password;
                 $_SESSION['user_email'] = $db_email;
                 $_SESSION['user_role'] = $db_role;
+
                 header("Location: /prolist/account");
             } else {
-                header("Location: login");
+                echo "password is not correct";
+                // $errorMsg['password'] = 'Password is not correct';
+                // header("Location: login");
+                // $errorMsg['password'] = 'Password is not correct.';
             }
         }
         ?>

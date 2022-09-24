@@ -52,7 +52,7 @@ if (isset($_POST['regBtn'])) {
     if ($passwordID == '') {
         $errorMsg['password'] = 'How do you intend to login without a password?';
     }
-    
+
     // Check if the passowrd doesn't match confirm password.
     if ($passwordID !== $passwordConfirm) {
         $errorMsg['passwordConfirm'] = "Password needs match";
@@ -62,10 +62,9 @@ if (isset($_POST['regBtn'])) {
     foreach ($errorMsg as $key => $value) {
         if (empty($value)) {
             unset($errorMsg[$key]);
-           
-            // user_login($email, $passwordID);
         }
-        if(empty($errorMsg)) {
+
+        if (empty($errorMsg)) {
             user_registration($name, $email, $passwordID);
             user_login($emailId, $password);
         }
@@ -106,7 +105,7 @@ if (isset($_POST['regBtn'])) {
                 <label class="text-sm font-bold text-gray-600 dark:text-gray-100 mb-1" for="passwordconfirm">Password *</label>
                 <input class="border rounded-md bg-white dark:bg-slate-300 px-3 py-2" type="password" name="passwordConfirm" id="passwordconfirm" placeholder="Confirm your Password" />
                 <p><?php echo isset($errorMsg['passwordConfirm']) ? $errorMsg['passwordConfirm'] : '' ?></p>
-                
+
             </div>
             <div class="flex justify-between text-sm">
                 <div class="flex items-center space-x-2">
