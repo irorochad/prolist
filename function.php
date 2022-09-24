@@ -223,38 +223,71 @@ function isFeatured()
                 ?>
 
         <?php
+        // User Registration
+        // check if email already exsits
 
-        function username_exists($username)
+        function email_exists($email)
 
         {
             global $db_connection;
 
-            $usernameQuery = "SELECT username FROM users WHERE `username` = '$username'";
-            $runUsernameQuery = mysqli_query($db_connection, $usernameQuery);
+            $emailQuery = "SELECT email FROM users WHERE `email` = '$email'";
+            $runemailQuery = mysqli_query($db_connection, $emailQuery);
 
-            if (mysqli_num_rows($runUsernameQuery) > 0) {
+            if (mysqli_num_rows($runemailQuery) > 0) {
                 return true;
             } else {
                 return false;
             }
         }
 
-
-        // check if email already exsits
-
-        function email_exists($emailId)
-
+        function user_registration($name, $email, $passwordID)
         {
             global $db_connection;
 
-            $emailQuery = "SELECT email FROM users WHERE `email` = '$emailId'";
-            $runemailQuery = mysqli_query($db_connection, $emailQuery);
+            // $name =  mysqli_real_escape_string($db_connection, $_POST['name']);
+            // $email =  mysqli_real_escape_string($db_connection, $_POST['emailId']);
+            // $passwordID =  mysqli_real_escape_string($db_connection, $_POST['passwordID']);
 
-            if (mysqli_num_rows($runemailQuery) > 0) {
-                $_SESSION['message'] = "Somehow, that email is taken";
+            $hashedPassword = password_hash($passwordID, PASSWORD_BCRYPT, array('cost'  => 12));
+
+            $queryInsert = "INSERT INTO users(name, email, password) VALUES('{$name}', '{$email}', '{$hashedPassword}')";
+            $runInsert = mysqli_query($db_connection, $queryInsert);
+            if (!$runInsert) {
+                die("Something went wrong");
+            }
+            
+
+        }
+        // Functons to login user
+        function user_login($emailId, $password)
+        {
+
+            global $db_connection;
+
+            $emailId = mysqli_real_escape_string($db_connection, $_POST['email']);
+            $password = mysqli_real_escape_string($db_connection, $_POST['password']);
+
+            $query = "SELECT * FROM users WHERE `email` = '$emailId'";
+            $queryRun = mysqli_query($db_connection, $query);
+
+            while ($row = mysqli_fetch_array($queryRun)) {
+                $db_id = $row['id'];
+                $db_name = $row['name'];
+                $db_password = $row['password'];
+                $db_email = $row['email'];
+                $db_role = $row['role'];
+            }
+            // Check if the inputed password matched with the password in the database.
+
+            if (password_verify($password, $db_password)) {
+                $_SESSION['user_name'] = $db_name;
+                $_SESSION['user_password'] = $db_password;
+                $_SESSION['user_email'] = $db_email;
+                $_SESSION['user_role'] = $db_role;
+                header("Location: /prolist/account");
+            } else {
+                header("Location: login");
             }
         }
-
-
-
         ?>

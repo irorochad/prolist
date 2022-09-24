@@ -18,20 +18,58 @@ if (isset($_POST['regBtn'])) {
     $passwordID =  mysqli_real_escape_string($db_connection, $_POST['passwordID']);
     $passwordConfirm =  mysqli_real_escape_string($db_connection, $_POST['passwordConfirm']);
 
-    if (!empty($name) && !empty($email) && !empty($passwordID) && !empty($passwordConfirm)) {
-        $hashedPassword = password_hash($passwordID, PASSWORD_BCRYPT, array('cost'  => 12));
+    // Error Msg should be empty by default. 
+    // However, if a user doens't meet our form requirement, an error msg is then appended to the $errorMsg array.
+    $errorMsg = [
+        'name' => '',
+        'email' => '',
+        'password' => '',
+        'passwordConfirm' => ''
+    ];
 
-        $queryInsert = "INSERT INTO users(name, email, password) VALUES('{$name}', '{$email}', '{$hashedPassword}')";
-        $runInsert = mysqli_query($db_connection, $queryInsert);
-        if (!$runInsert) {
-            die("Something went wrong");
-        }
-        $message = "Account Created";
-    } else {
-        $message = "All fields are required";
+    // check if name is less than 3 characters
+    if (strlen($name) < 3) {
+        $errorMsg['name'] = 'Please provide your full name. ';
     }
-} else {
-    $message = "";
+    // check if name is empty
+    if ($name == '') {
+        $errorMsg['name'] = 'Name cannot be empty';
+    }
+    // cehck if email is empty
+    if ($email == '') {
+        $errorMsg['email'] = 'Email field cannot be empty, please.  ';
+    }
+    // Check if the email is already taken, if yes we show them a link to login.
+    if (email_exists($email)) {
+        $errorMsg['email'] = 'Somehow, that email already exsits' . " " . "<a href='login'>Login Here</a>";
+    }
+    // Check if the passowrd is less then 5 characters
+    if (strlen($passwordID) < 5) {
+        $errorMsg['password'] = 'Password cannot be less than 4 characters.';
+    }
+
+    // Check if the passowrd is empty;
+    if ($passwordID == '') {
+        $errorMsg['password'] = 'How do you intend to login without a password?';
+    }
+    
+    // Check if the passowrd doesn't match confirm password.
+    if ($passwordID !== $passwordConfirm) {
+        $errorMsg['passwordConfirm'] = "Password needs match";
+    }
+    // Loop through the $errorMsg array, if it's emtpty, unset the error msgs and register the users and then login em in!
+    // The functions to register and login are in the functions.php
+    foreach ($errorMsg as $key => $value) {
+        if (empty($value)) {
+            unset($errorMsg[$key]);
+           
+            // user_login($email, $passwordID);
+        }
+        if(empty($errorMsg)) {
+            user_registration($name, $email, $passwordID);
+            user_login($emailId, $password);
+        }
+    }
 }
 ?>
 <!-- eNd php code to register -->
@@ -47,25 +85,28 @@ if (isset($_POST['regBtn'])) {
     </div>
 
     <form action="register" method="post" class="w-full">
-        <p class="text-center"><?php echo $message; ?></p>
         <div class="max-w-md w-full mx-auto bg-white dark:bg-[#77325f2d] rounded-lg p-7 space-y-7 ">
 
             <div class="flex flex-col">
-                <label class="text-sm font-bold text-gray-600 dark:text-gray-100  mb-1" for="name">Name *</label>
-                <input class="border rounded-md bg-white dark:bg-slate-300 px-3 py-2" type="text" name="name" id="name" placeholder="e.g: mrDoe" required />
+                <label class="text-sm font-bold text-gray-600 dark:text-gray-100  mb-1" for="name">Full Name *</label>
+                <input class="border rounded-md bg-white dark:bg-slate-300 px-3 py-2" type="text" name="name" id="name" value="<?php echo isset($name) ? $name : '' ?>" placeholder="e.g: mrDoe" />
+                <p><?php echo isset($errorMsg['name']) ? $errorMsg['name'] : '' ?></p>
             </div>
             <div class="flex flex-col">
                 <label class="text-sm font-bold text-gray-600 dark:text-gray-100  mb-1" for="email">Email Address *</label>
-                <input class="border rounded-md bg-white dark:bg-slate-300 px-3 py-2" type="text" name="emailId" id="email" placeholder="Enter your Email Address" required />
-
+                <input class="border rounded-md bg-white dark:bg-slate-300 px-3 py-2" type="text" name="emailId" id="email" value="<?php echo isset($email) ? $email : '' ?>" placeholder="Enter your Email Address" />
+                <p><?php echo isset($errorMsg['email']) ? $errorMsg['email'] : '' ?></p>
             </div>
             <div class="flex flex-col">
                 <label class="text-sm font-bold text-gray-600 dark:text-gray-100 mb-1" for="password">Password *</label>
                 <input class="border rounded-md bg-white dark:bg-slate-300 px-3 py-2" type="password" name="passwordID" id="password" placeholder="Enter your Password" />
+                <p><?php echo isset($errorMsg['password']) ? $errorMsg['password'] : '' ?></p>
             </div>
             <div class="flex flex-col">
                 <label class="text-sm font-bold text-gray-600 dark:text-gray-100 mb-1" for="passwordconfirm">Password *</label>
                 <input class="border rounded-md bg-white dark:bg-slate-300 px-3 py-2" type="password" name="passwordConfirm" id="passwordconfirm" placeholder="Confirm your Password" />
+                <p><?php echo isset($errorMsg['passwordConfirm']) ? $errorMsg['passwordConfirm'] : '' ?></p>
+                
             </div>
             <div class="flex justify-between text-sm">
                 <div class="flex items-center space-x-2">
@@ -83,4 +124,4 @@ if (isset($_POST['regBtn'])) {
     </form>
 </main>
 
-<?php include "./includes/footer.inc.php" ?>
+<?php include "./includes/footer.inc.php"; ?>

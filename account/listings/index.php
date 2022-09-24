@@ -2,7 +2,9 @@
 include "../includes/sidebar.inc.php";
 include "../includes/navbar.inc.php";
 include "../../includes/db/db.inc.php";
-include "functions.php";
+
+// Include the main function from the includes in the account folder
+include "../includes/functions.php";
 ?>
 
 <?php 
@@ -66,7 +68,8 @@ include "functions.php";
                 <tbody>
                     <!-- To get the table body, I'm using switch statement. The idea is if the source(url) is any of the below case, it shold display the functions for each pagesx -->
                     <?php
-
+                    // Includes the functions in the listings folder.
+                        include "functions.php";
                     if (isset($_GET['source'])) {
                         $source = $_GET['source'];
                     } else {

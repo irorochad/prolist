@@ -6,9 +6,13 @@ $page_keywords = "crypto, crypto listing, crypto projects, find new crypto proje
 
 <?php include "./includes/header.inc.php";
 include "./includes/navbar.inc.php";
-include "./includes/db/db.inc.php" ?>
+include "./includes/db/db.inc.php";
+include "function.php"; ?>
 
-
+<?php
+if (isset($_POST['loginBtn'])) {
+  user_login($_POST['email'], $_POST['password']);
+} ?>
 
 
 <main class="min-h-screen flex flex-col items-center justify-center bg-gray-50 dark:bg-slate-900 space-y-10 py-12 px-4 sm:px-6 lg:px-8">
@@ -19,7 +23,7 @@ include "./includes/db/db.inc.php" ?>
       <a href="register" class="font-medium text-indigo-600 border-b border-indigo-600"> create your FREE account </a>
     </p>
   </div>
-  <form action="includes/logincode.php" method="post" class="w-full">
+  <form action="" method="post" class="w-full">
     <div class="max-w-md w-full mx-auto bg-white dark:bg-[#77325f2d] rounded-lg p-7 space-y-6">
 
       <div class="flex flex-col">
@@ -47,4 +51,4 @@ include "./includes/db/db.inc.php" ?>
   </form>
 </main>
 
-<?php include "./includes/footer.inc.php" ?>
+<?php include "./includes/footer.inc.php"; ?>
