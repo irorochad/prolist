@@ -15,7 +15,7 @@
   <meta property="og:type" content="website">
     <meta property="og:title" content="prolist - find crypto projects at ease">
     <meta property="og:description" content="With prolist, you can find correct data about a crypto project">
-    <meta property="og:image" content="https://script.viserlab.com/hyiplab/demo/assets/images/seo/5fcc92c79ffe31607242439.jpg"/>
+    <!-- <meta property="og:image" content="https://script.viserlab.com/hyiplab/demo/assets/images/seo/5fcc92c79ffe31607242439.jpg"/> -->
     <meta property="og:image:type" content="image/jpg" />
     <meta property="og:image:width" content="600" />
     <meta property="og:image:height" content="315" />
