@@ -27,9 +27,15 @@ session_start(); ?>
   <meta property="og:url" content="https://example.com">
 
   <link rel="stylesheet" href="/prolist/assets/tailscss/output.css" />
-  <!-- <link rel="stylesheet" href="/prolist/assets/css/index.css" /> -->
+  <link rel="stylesheet" href="/prolist/assets/css/index.css"/>
 
+  <!-- Add project -->
+  <link rel="stylesheet" href="/prolist/assets/user/css/index.css"/>
 
+  <!-- WYSIWYG -->
+  <script src="/prolist/assets/user/js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+  <!-- WYSIWYG -->
+<!-- End projects -->
 
 </head>
 
