@@ -1,4 +1,4 @@
-<?php session_start();
+<?php
 $page_title = "Login - prolists";
 $page_description = "Prolist helps you find and discover crypto projects with accurate informations";
 $page_keywords = "crypto, crypto listing, crypto projects, find new crypto projects, btc";
@@ -10,6 +10,11 @@ include "./includes/db/db.inc.php";
 include "function.php"; ?>
 
 <?php
+// If a user_name session is set, and the user wants to go back to register page,
+//  he'll be redirected to account
+if(isset($_SESSION['user_name'])){
+  header("location: /prolist/account");
+}
 if (isset($_POST['loginBtn'])) {
   // user_login($_POST['email'], $_POST['password']);
 
@@ -23,11 +28,8 @@ if (isset($_POST['loginBtn'])) {
 
   // check if the email doesn't exsits
   if (!email_exists($email)) {
-    $errorMsg['email'] = 'We couldn\'t find that email. ' . " " . "<a href='register'>Creat Account here</a>";
+    $errorMsg['email'] = 'We couldn\'t find that email. ' . " " . "<a href='register'>Create Account here</a>";
   }
-
-  // check if password is not correct
-
  
 
   // check if email is empty
@@ -40,17 +42,16 @@ if (isset($_POST['loginBtn'])) {
     $errorMsg['password'] = 'Password is required!';
   }
 
-
-
   // Loop through the forom if there's any error.
   foreach ($errorMsg as $key => $value) {
     if (empty($value)) {
+      // If the error messages is empty, unset the error keys.
       unset($errorMsg[$key]);
     }
 
     if (empty($errorMsg)) {
+      // If the error msg is empty, login the user with the function.
       user_login($_POST['email'], $_POST['password']);
-      // user_login($emailId, $password);
     }
   }
 }

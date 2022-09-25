@@ -257,6 +257,8 @@ function isFeatured()
             $runInsert = mysqli_query($db_connection, $queryInsert);
             if (!$runInsert) {
                 die("Something went wrong");
+            } else {
+                header("Location: login");
             }
         }
         // Functons to login user
@@ -279,17 +281,15 @@ function isFeatured()
                 $db_email = $row['email'];
                 $db_role = $row['role'];
             }
+            
 
             // Check if the inputed password matched with the password in the database.
 
             if (password_verify($password, $db_password)) {
-
-                $_SESSION['user_id'] = $$db_id;
                 $_SESSION['user_name'] = $db_name;
                 $_SESSION['user_password'] = $db_password;
                 $_SESSION['user_email'] = $db_email;
                 $_SESSION['user_role'] = $db_role;
-
                 header("Location: /prolist/account");
             } else {
                 echo "password is not correct";

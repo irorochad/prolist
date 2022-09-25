@@ -1,4 +1,4 @@
-<?php session_start();
+<?php
 $page_title = "Register an Account - prolists";
 $page_description = "Register an acconut today and get get your project listed for FREE!";
 $page_keywords = "crypto, crypto listing, crypto projects, find new crypto projects, btc";
@@ -12,6 +12,11 @@ include "function.php"; ?>
 
 <!-- php code to register -->
 <?php
+// If a user_name session is set, and the user wants to go back to register page, 
+// he'll be redirected to account
+if (isset($_SESSION['user_name'])) {
+    header("location: /prolist/account");
+}
 if (isset($_POST['regBtn'])) {
     $name =  mysqli_real_escape_string($db_connection, $_POST['name']);
     $email =  mysqli_real_escape_string($db_connection, $_POST['emailId']);
@@ -35,14 +40,19 @@ if (isset($_POST['regBtn'])) {
     if ($name == '') {
         $errorMsg['name'] = 'Name cannot be empty';
     }
+    // Validate name if it's only letters and white space
+    if (!preg_match("/^[a-zA-Z-' ]*$/", $name)) {
+        $errorMsg['name'] = 'Only letters and white space allowed';
+    }
     // cehck if email is empty
     if ($email == '') {
         $errorMsg['email'] = 'Email field cannot be empty, please.  ';
     }
     // Check if the email is already taken, if yes we show them a link to login.
     if (email_exists($email)) {
-        $errorMsg['email'] = 'Somehow, that email already exsits' . " " . "<a href='login'>Login Here</a>";
+        $errorMsg['email'] = 'Somehow, that email already exsits' . " " . "<a href='login' class='text-blue-500'>Login Here</a>";
     }
+
     // Check if the passowrd is less then 5 characters
     if (strlen($passwordID) < 5) {
         $errorMsg['password'] = 'Password cannot be less than 4 characters.';
@@ -66,7 +76,6 @@ if (isset($_POST['regBtn'])) {
 
         if (empty($errorMsg)) {
             user_registration($name, $email, $passwordID);
-            user_login($emailId, $password);
         }
     }
 }
