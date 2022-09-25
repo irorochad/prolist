@@ -1,7 +1,7 @@
 <?php include "../includes/header.inc.php"; ?>
 <?php include "../includes/sidebar.inc.php"; ?>
 <?php include "../includes/navbar.inc.php"; ?>
-<?php include "../includes/db_includes/db.inc.php"
+<?php include "../../includes/db/db.inc.php";
 ?>
 
 
@@ -34,7 +34,7 @@ if (!isset($_GET['p_id'])) {
 
                             <div class="w-full max-w-sm bg-white drop-shadow-2xl rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                                 <div class="flex flex-col items-center pt-4 pb-5 font-Poppins">
-                                    <img class="mb-3 w-24 h-24 rounded-full shadow-lg" <?php echo "src='prolist_admin/public/assets/img/static/$projectLogo' ";?> alt="Project Logo">
+                                    <img class="mb-3 w-24 h-24 rounded-full shadow-lg" <?php echo "src='/prolist_admin/public/assets/img/static/$projectLogo' ";?> alt="Project Logo">
                                     <h5 class="mb-1 text-xl font-medium  text-gray-900 dark:text-white"> <?php echo $projectName; ?></h5>
                                     <span class="text-sm text-gray-500 dark:text-gray-400"><?php echo $projectcategory; ?></span>
                                     <div class="flex mt-4 space-x-3 md:mt-6">
@@ -130,7 +130,7 @@ if (!isset($_GET['p_id'])) {
                             $fetch_All_Posts = mysqli_query($db_connection, $query);
                             while ($row = mysqli_fetch_assoc($fetch_All_Posts)) {
                                 $project_content = $row['project_content']; ?>
-                                <div class="mt-5 font-Poppins "><?php echo "$project_content"; ?></div>
+                                <div class="mt-5 font-Poppins text-gray-800 dark:text-gray-200" ><?php echo "$project_content"; ?></div>
                             <?php } ?>
                         </div>
                         <!-- End About Project Content -->
@@ -211,6 +211,4 @@ if (isset($_GET['unfeatured'])) {
 ?>
 <!-- End Query to Mark as Not Featured -->
 
-
-
-<?php include "/opt/lampp/htdocs/prolist_admin/public/includes/footer.inc.php"; ?>
+<?php include "../includes/footer.inc.php"; ?>
