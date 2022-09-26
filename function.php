@@ -286,6 +286,8 @@ function isFeatured()
             // Check if the inputed password matched with the password in the database.
 
             if (password_verify($password, $db_password)) {
+
+                $_SESSION['user_id'] =  $db_id;
                 $_SESSION['user_name'] = $db_name;
                 $_SESSION['user_password'] = $db_password;
                 $_SESSION['user_email'] = $db_email;
