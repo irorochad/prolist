@@ -1,14 +1,18 @@
 <?php include "./includes/header.inc.php";
 include "./includes/sidebar.inc.php";
 include "./includes/navbar.inc.php";
+include "./../includes/db/db.inc.php";
+
+
+// Include the function in the root folder of the account folder 
+include "functions.php";
 ?>
 
-
-<?php 
-if(!isset($_SESSION['user_email']) && !isset($_SESSION['user_password'])){
-   header("Location: ../login");
+<?php
+if (!isset($_SESSION['user_email']) && !isset($_SESSION['user_password'])) {
+  header("Location: ../login");
 }
- ?>
+?>
 
 <main class="h-full overflow-y-auto">
   <!-- Main Dashboard aside nav and sidebar -->
@@ -28,11 +32,11 @@ if(!isset($_SESSION['user_email']) && !isset($_SESSION['user_password'])){
           </svg>
         </div>
         <div>
-        <p class="text-lg font-normal text-gray-700 dark:text-gray-200">
-           66
+        <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+            My Listed Project
           </p>
-          <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-            My Project listing
+          <p class="text-lg font-normal text-gray-700 dark:text-gray-200">
+            <?php findAllProjectNumbers(); ?>
           </p>
           
         </div>
@@ -48,19 +52,19 @@ if(!isset($_SESSION['user_email']) && !isset($_SESSION['user_password'])){
           </svg>
         </div>
         <div>
-        <p class="text-lg font-normal text-gray-700 dark:text-gray-200">
-           44
+          <p class="text-lg font-normal text-gray-700 dark:text-gray-200">
+            44
           </p>
           <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
             My Job Listing
           </p>
-          
+
         </div>
         <a type="button" href="public/categories" class="text-white bg-gray-700 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-1 mr-2 mb-2 dark:bg-gray-700  dark:focus:ring-gray-700 dark:border-gray-700">View</a>
       </div>
       <!-- Card -->
     </div>
-    
+
     <!-- Charts -->
     <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
       Charts

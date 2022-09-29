@@ -59,7 +59,7 @@ include "./../includes/db/db.inc.php";
                 <tbody>
 
                     <?php
-                        findAllProject();
+                        getAllProjects();
                     ?>
                     
                 </tbody>

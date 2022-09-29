@@ -1,8 +1,17 @@
 <?php  ob_start();
-function findAllProject()
+
+function findAllProjectNumbers() {
+    global $db_connection;
+    $query = "SELECT * FROM projects_info WHERE `user_id` = {$_SESSION['user_id']} ";
+    $findAllPs = mysqli_query($db_connection, $query);
+    echo $count = mysqli_num_rows($findAllPs);
+}
+
+
+function getAllProjects()
 {
     global $db_connection;
-    $query = "SELECT * FROM projects_info WHERE `id` = 'user_name' ";
+    $query = "SELECT * FROM projects_info WHERE `user_id` = {$_SESSION['user_id']} ";
     $fetch_All_Posts = mysqli_query($db_connection, $query);
 
     while ($row = mysqli_fetch_assoc($fetch_All_Posts)) {
@@ -33,7 +42,7 @@ function findAllProject()
                 <?php echo $project_date; ?>
             </td>
             <td class='py-4 px-6 text-right'>
-                <?php echo "<a href='overview?p_id=$id' class='font-medium text-blue-600 dark:text-blue-500 hover:underline'>View</a>"; ?>
+                <?php echo "<a href='#' class='font-medium text-blue-600 dark:text-blue-500 hover:underline'>View</a>"; ?>
             </td>
         </tr>
 

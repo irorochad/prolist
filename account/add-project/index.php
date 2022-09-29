@@ -42,7 +42,7 @@
             <div class="form_wrap mb-14">
                 <?php
                 if (isset($_POST['submitFormBtn'])) {
-                    $submitBtn = $_POST['submitFormBtn'];
+                    // $submitBtn = $_POST['submitFormBtn'];
                     sendData();
                 }
                 ?>
