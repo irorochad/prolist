@@ -144,13 +144,39 @@ function projectIsListed()
             </div>
             <!-- End Project Header -->
         </div>
+
         <!-- Project Hero-->
-        <div class="grid grid-cols-1 md:grid-cols-4 mt-10 mb-10 px-4 mx-auto">
+        <div class="grid grid-cols-1  lg:grid-cols-4  mt-10 mb-10 px-4 mx-auto ">
             <!-- Left Item -->
             <div class="flex flex-col md:col-start-1 md:col-end-3 w-full text-left p-4">
                 <h1 class="text-3xl md:text-2xl font-bold font-Poppins mb-4 text-gray-800 dark:text-gray-200">About Project</h1>
                 <div class="font-Poppins text-gray-600 dark:text-gray-200">
                     <?php echo $project_content; ?>
+                </div>
+                <div class="flex flex-row items-center">
+                    <h3 class="mt-4 text-1xl font-bold mb-4 text-gray-800 dark:text-gray-200 mr-3">Help Share this Project:</h3>
+                    <div class="flex flex-row gap-2">
+                        <!--Share Icons --->
+                        <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                                <path fill-rule="evenodd" d="M18.97 3.659a2.25 2.25 0 00-3.182 0l-10.94 10.94a3.75 3.75 0 105.304 5.303l7.693-7.693a.75.75 0 011.06 1.06l-7.693 7.693a5.25 5.25 0 11-7.424-7.424l10.939-10.94a3.75 3.75 0 115.303 5.304L9.097 18.835l-.008.008-.007.007-.002.002-.003.002A2.25 2.25 0 015.91 15.66l7.81-7.81a.75.75 0 011.061 1.06l-7.81 7.81a.75.75 0 001.054 1.068L18.97 6.84a2.25 2.25 0 000-3.182z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="sr-only">Copy Link to clipboard</span>
+                        </a>
+                        <a href="#" class="text-blue-500 hover:text-gray-700 dark:hover:text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-7 h-7" fill="currentColor">
+                                <path d="M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 0 0 5.001-1.721 4.036 4.036 0 0 1-3.767-2.793c.249.037.499.062.761.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 0 1-3.23-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 0 1-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 0 0 8.306 4.215c-.062-.3-.1-.611-.1-.923a4.026 4.026 0 0 1 4.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 0 0 2.556-.973 4.02 4.02 0 0 1-1.771 2.22 8.073 8.073 0 0 0 2.319-.624 8.645 8.645 0 0 1-2.019 2.083z"></path>
+                            </svg>
+                            <span class="sr-only">Twitter</span>
+                        </a>
+                        <a href="#" class="text-blue-500 hover:text-gray-700 dark:hover:text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12.001 2.002c-5.522 0-9.999 4.477-9.999 9.999 0 4.99 3.656 9.126 8.437 9.879v-6.988h-2.54v-2.891h2.54V9.798c0-2.508 1.493-3.891 3.776-3.891 1.094 0 2.24.195 2.24.195v2.459h-1.264c-1.24 0-1.628.772-1.628 1.563v1.875h2.771l-.443 2.891h-2.328v6.988C18.344 21.129 22 16.992 22 12.001c0-5.522-4.477-9.999-9.999-9.999z"></path>
+                            </svg>
+                            <span class="sr-only">Facebook</span>
+                        </a>
+
+                    </div>
                 </div>
             </div>
             <!-- Right Item -->
@@ -178,6 +204,35 @@ function projectIsListed()
                     <div class="flex flex-row justify-between font-Poppins mt-5">
                         <p>Num. Of Employee:</p>
                         <P>5-10</P>
+                    </div>
+                    <div class="flex flex-row justify-between font-Poppins mt-5">
+                        <p>Socials</p>
+                        <div class="flex flex-row gap-2">
+                            <a href="#" class="text-[#1da1f2] hover:text-gray-700 dark:hover:text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-7 h-7" fill="currentColor">
+                                    <path d="M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 0 0 5.001-1.721 4.036 4.036 0 0 1-3.767-2.793c.249.037.499.062.761.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 0 1-3.23-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 0 1-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 0 0 8.306 4.215c-.062-.3-.1-.611-.1-.923a4.026 4.026 0 0 1 4.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 0 0 2.556-.973 4.02 4.02 0 0 1-1.771 2.22 8.073 8.073 0 0 0 2.319-.624 8.645 8.645 0 0 1-2.019 2.083z"></path>
+                                </svg>
+                                <span class="sr-only">Twitter</span>
+                            </a>
+                            <a href="#" class="text-[#1877f2] hover:text-gray-700 dark:hover:text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12.001 2.002c-5.522 0-9.999 4.477-9.999 9.999 0 4.99 3.656 9.126 8.437 9.879v-6.988h-2.54v-2.891h2.54V9.798c0-2.508 1.493-3.891 3.776-3.891 1.094 0 2.24.195 2.24.195v2.459h-1.264c-1.24 0-1.628.772-1.628 1.563v1.875h2.771l-.443 2.891h-2.328v6.988C18.344 21.129 22 16.992 22 12.001c0-5.522-4.477-9.999-9.999-9.999z"></path>
+                                </svg>
+                                <span class="sr-only">Facebook</span>
+                            </a>
+                            <a href="#" class="text-[#0088cc] hover:text-gray-700 dark:hover:text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="m20.665 3.717-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"></path>
+                                </svg>
+                                <span class="sr-only">Telegram</span>
+                            </a>
+                            <a href="#" class="text-[#ff0000] hover:text-red-700">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M21.593 7.203a2.506 2.506 0 0 0-1.762-1.766C18.265 5.007 12 5 12 5s-6.264-.007-7.831.404a2.56 2.56 0 0 0-1.766 1.778c-.413 1.566-.417 4.814-.417 4.814s-.004 3.264.406 4.814c.23.857.905 1.534 1.763 1.765 1.582.43 7.83.437 7.83.437s6.265.007 7.831-.403a2.515 2.515 0 0 0 1.767-1.763c.414-1.565.417-4.812.417-4.812s.02-3.265-.407-4.831zM9.996 15.005l.005-6 5.207 3.005-5.212 2.995z"></path>
+                                </svg>
+                                <span class="sr-only">Youtube</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
