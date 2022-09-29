@@ -40,7 +40,7 @@ if (!isset($_SESSION['user_email']) && !isset($_SESSION['user_password'])) {
           </p>
           
         </div>
-        <a type="button" href="./listings" class="text-white bg-gray-700 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-1 mr-2 mb-2 dark:bg-gray-700  dark:focus:ring-gray-700 dark:border-gray-700">View</a>
+        <a type="button" href="./my_listing" class="text-white bg-gray-700 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-1 mr-2 mb-2 dark:bg-gray-700  dark:focus:ring-gray-700 dark:border-gray-700">View</a>
       </div>
       <!-- Card -->
 

@@ -38,7 +38,7 @@ include "function.php"; ?>
       </form>
       <!-- trending keywords -->
       <div class="">
-        <p class="text-gray-800 dark:text-gray-200 ">Trending: <a href="/index.php">aurox, coinprofit, CMC</a></p>
+        <p class="text-gray-800 dark:text-gray-200 ">Trending: <a href="#">aurox, coinprofit, CMC</a></p>
       </div>
     </div>
     <!-- Right Item Image -->
@@ -61,7 +61,7 @@ include "function.php"; ?>
     
       <!-- Search the db for projects that are marked as featured -->
       <?php 
-      $query = "SELECT * FROM projects_info WHERE `is_featured` = 'true' ";
+      $query = "SELECT * FROM projects_info WHERE `is_featured` = 'true' AND `project_status` = 'Approved' ";
       $featured_project = mysqli_query($db_connection, $query);
       $count = mysqli_num_rows($featured_project);
       if($count <= 0) {

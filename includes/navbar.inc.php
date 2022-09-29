@@ -58,7 +58,7 @@
         </div>
       </div>
       <!-- The Search Box -->
-      <form method="GET" action="./search">
+      <form method="GET" action="/prolist/search">
         <div class="relative">
           <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
             <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -87,7 +87,7 @@
   <!-- Mobile Menu -->
   <div class="md:hidden">
     <div id="menu" class="bg-white dark:bg-slate-800 absolute flex-col items-center hidden self-end py-8 mt-10 space-y-6 font-bold b sm:w-auto sm:self-center left-6 right-6 drop-shadow-md z-40">
-      <a href="./projects" class="text-gray-800 dark:text-gray-200">Explore Projects</a>
+      <a href="/prolist/projects" class="text-gray-800 dark:text-gray-200">Explore Projects</a>
       <a href="#" class="text-gray-800 dark:text-gray-200">Explore Jobs</a>
       <a href="#" class="text-gray-800 dark:text-gray-200">Resources</a>
 
@@ -98,8 +98,8 @@
             </svg>
           </a>
       <?php else : ?>
-        <a href="login.php" class="text-gray-800 dark:text-gray-200">Login</a>
-      <a href="#" class="ml-2 p-3 px-6 pt-2  rounded-full baseline font-semibold text-white bg-brandBlue">List for Free</a>
+        <a href="/prolist/login" class="text-gray-800 dark:text-gray-200">Login</a>
+      <a href="/prolist/register" class="ml-2 p-3 px-6 pt-2  rounded-full baseline font-semibold text-white bg-brandBlue">List for Free</a>
       <?php endif; ?>
     </div>
   </div>

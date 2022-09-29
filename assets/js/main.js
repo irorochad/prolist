@@ -69,10 +69,7 @@ menuBTN.addEventListener("click", () => {
 
 $(".owl-carousel").owlCarousel({
   loop: true,
-  margin: 10,
   nav: false,
-  loop: true,
-  margin: 5,
   autoplay: true,
   autoplayTimeout: 3000,
   autoplayHoverPause: true,
