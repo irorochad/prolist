@@ -10,7 +10,7 @@ include "./includes/db/db.inc.php";
 include "function.php"; ?>
 
 <?php
-// If a user_name session is set, and the user wants to go back to register page,
+// If a user_name session is set, and the user wants to go back to login page,
 //  he'll be redirected to account
 if(isset($_SESSION['user_name'])){
   header("location: /prolist/account");
@@ -79,6 +79,8 @@ if (isset($_POST['loginBtn'])) {
         <label class="text-sm font-bold text-gray-600 mb-1" for="password">Password</label>
         <input class="border rounded-md bg-white dark:bg-slate-300 px-3 py-2" type="password" name="password" id="password" placeholder="Enter your Password" />
         <p class="text-red-700"><?php echo isset($errorMsg['password']) ? $errorMsg['password'] : '' ?></p>
+        <!-- If password doens't match, call this function to show an incoorect passcode -->
+        <?php inccorectPass(); ?>
       </div>
       <div class="flex justify-between text-sm">
         <div class="flex items-center space-x-2">

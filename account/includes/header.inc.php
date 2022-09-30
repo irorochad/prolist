@@ -1,6 +1,13 @@
 <?php ob_start();
 session_start(); ?>
 
+<!-- If the user is not logged in, and tries to access the user account page, take them back to login -->
+<?php
+if (!isset($_SESSION['user_email']) && !isset($_SESSION['user_password'])) {
+  header("Location: /prolist/login");
+}
+?>
+
 <!doctype html>
 <html x-data="data()">
 

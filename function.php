@@ -146,12 +146,12 @@ function projectIsListed()
         </div>
 
         <!-- Project Hero-->
-        <div class="grid grid-cols-1  lg:grid-cols-4  mt-10 mb-10 px-4 mx-auto ">
+        <div class="grid grid-cols-1 lg:grid-cols-4  mt-10 mb-10 px-4 mx-auto ">
             <!-- Left Item -->
             <div class="flex flex-col md:col-start-1 md:col-end-3 w-full text-left p-4">
                 <h1 class="text-3xl md:text-2xl font-bold font-Poppins mb-4 text-gray-800 dark:text-gray-200">About Project</h1>
                 <div class="font-Poppins text-gray-600 dark:text-gray-200">
-                    <?php echo $project_content;?>
+                    <?php echo $project_content; ?>
                 </div>
                 <div class="flex flex-row items-center">
                     <h3 class="mt-4 text-1xl font-bold mb-4 text-gray-800 dark:text-gray-200 mr-3">Help Share this Project:</h3>
@@ -196,7 +196,7 @@ function projectIsListed()
                 </div>
             </div>
             <!-- Right Item -->
-            <div class="flex flex-col md:col-start-4 md:col-end-5 w-full ">
+            <div class="flex flex-col md:col-start-4 md:col-end-5 w-full">
                 <div class="drop-shadow-md bg-white dark:bg-[#101313] text-gray-600 dark:text-gray-200 rounded-md p-4">
                     <h1 class="text-gray-800 dark:text-gray-200 text-3xl md:text-2xl font-bold font-Poppins md:text-right">Useful Data</h1>
                     <div class="flex flex-row justify-between mt-5">
@@ -334,6 +334,17 @@ function isFeatured()
                 header("Location: login");
             }
         }
+
+        // show an inccorrect password if the password doesn't match
+        function inccorectPass()
+        {
+            if (isset($_SESSION['passwordNotCorrect'])) { ?>
+
+                <h4 class="text-red-600"><?= $_SESSION['passwordNotCorrect']; ?></h4>
+        <?php
+                unset($_SESSION['passwordNotCorrect']);
+            }
+        }
         // Functons to login user
 
         function user_login($emailId, $password)
@@ -367,7 +378,8 @@ function isFeatured()
                 $_SESSION['user_role'] = $db_role;
                 header("Location: /prolist/account");
             } else {
-                echo "password is not correct";
+                $_SESSION['passwordNotCorrect'] = "Incorrect Password";
+                // echo "password is not correct";
                 // $errorMsg['password'] = 'Password is not correct';
                 // header("Location: login");
                 // $errorMsg['password'] = 'Password is not correct.';

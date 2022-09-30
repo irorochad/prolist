@@ -8,11 +8,7 @@ include "./../includes/db/db.inc.php";
 include "functions.php";
 ?>
 
-<?php
-if (!isset($_SESSION['user_email']) && !isset($_SESSION['user_password'])) {
-  header("Location: ../login");
-}
-?>
+
 
 <main class="h-full overflow-y-auto">
   <!-- Main Dashboard aside nav and sidebar -->
