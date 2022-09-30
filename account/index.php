@@ -32,7 +32,7 @@ include "functions.php";
             My Listed Project
           </p>
           <p class="text-lg font-normal text-gray-700 dark:text-gray-200">
-            <?php findAllProjectNumbers(); ?>
+            <?php myProjectCounts(); ?>
           </p>
           
         </div>
