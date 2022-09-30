@@ -65,8 +65,6 @@ menuBTN.addEventListener("click", () => {
   mobileMenu.classList.toggle("hidden");
 });
 
-
-
 $(".owl-carousel").owlCarousel({
   loop: true,
   nav: false,
@@ -82,8 +80,7 @@ $(".owl-carousel").owlCarousel({
     },
     1000: {
       items: 3,
-    }
-
+    },
   },
 });
 $(".play").on("click", function () {
@@ -92,3 +89,15 @@ $(".play").on("click", function () {
 $(".stop").on("click", function () {
   owl.trigger("stop.owl.autoplay");
 });
+
+// Function to copy project URL to clipboard!
+function copyLinkToClipBoard() {
+  // Get the project URL
+  var postUrl = document.location.href;
+
+  // Copy the postURl
+  navigator.clipboard.writeText(postUrl);
+
+  // Alert the copied Link
+  alert("You've copied " + postUrl);
+}

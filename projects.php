@@ -1,14 +1,18 @@
-<?php 
-  $page_title = "projects - prolists";
-  $page_description = "Prolist helps you find and discover crypto projects with accurate informations";
-  $page_keywords = "crypto, crypto listing, crypto projects, find new crypto projects, btc";
+<?php
+$page_title = "projects - prolists";
+$page_description = "Prolist helps you find and discover crypto projects with accurate informations";
+$page_keywords = "crypto, crypto listing, crypto projects, find new crypto projects, btc";
 ?>
 
-<!-- Include Db Connections and db functions -->
-<?php include "./includes/db/db.inc.php";
+
+<?php
+//  Include Db Connections and db functions 
+include "./includes/db/db.inc.php";
 include "function.php";
+
+// End Db Connections and functions
 ?>
-<!-- End Db Connections and functions -->
+
 
 <?php include "./includes/header.inc.php"; ?>
 
@@ -23,8 +27,8 @@ include "function.php";
 
 
 if (!isset($_GET['p_slug'])) { ?>
-    <div class="container mx-auto px-4 pt-10 md:px-0">  
-    <hr class="mb-10 border-gray-200 sm:mx-auto dark:border-gray-700">
+    <div class="container mx-auto px-4 pt-10 md:px-0">
+        <hr class="mb-10 border-gray-200 sm:mx-auto dark:border-gray-700">
         <!--Project pages -->
         <div class=" mx-auto  grid gap-4 grid-rows-1 md:grid-cols-2 lg:grid-cols-4 items-center md:items-start">
             <?php $query = "SELECT * FROM projects_info WHERE project_status = 'approved' ";
@@ -43,7 +47,7 @@ if (!isset($_GET['p_slug'])) { ?>
 
                     <div class="flex flex-row justify-between items-center">
 
-                    <?php echo "<img class='p-3 w-1/3  rounded-full shadow-xl' src='/prolist_admin/public/assets/img/static/$projectLogo' alt='LOGO'>" ?>
+                        <?php echo "<img class='p-3 w-1/3  rounded-full shadow-xl' src='/prolist_admin/public/assets/img/static/$projectLogo' alt='LOGO'>" ?>
 
                         <h5 class="mb-2 text-2xl font-bold  text-gray-800 dark:text-gray-100  mr-5"><?php echo $project_name; ?></h5>
 
@@ -51,7 +55,7 @@ if (!isset($_GET['p_slug'])) { ?>
 
                     <div class="p-5">
 
-                        <div class="mb-3 font-normal text-left font-Poppins text-gray-700 dark:text-gray-400"><?php echo $project_content;?>...</div>
+                        <div class="mb-3 font-normal text-left font-Poppins text-gray-700 dark:text-gray-400"><?php echo $project_content; ?>...</div>
 
                         <a href="<?php echo "projects/" . $slugUrl; ?>" class='inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>
                             Explore
@@ -77,7 +81,7 @@ if (!isset($_GET['p_slug'])) { ?>
 
     if (mysqli_num_rows($check_for_project) <= 0) {
         projectNotFound();
-    } else { 
+    } else {
         projectIsListed();
     }
 }
