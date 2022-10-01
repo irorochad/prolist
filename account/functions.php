@@ -55,4 +55,70 @@ function getAllProjects()
     } // end while loop/.
 }
 
+
+// Add and Remove the session messages after a task is done
+function actionsMsg()
+{
+    if (isset($_SESSION['message'])) { ?>
+
+        <h4 class="text-blue-600"><?= $_SESSION['message']; ?></h4>
+<?php
+        unset($_SESSION['message']);
+    }
+}
+
+
+function email_exists($user_email_Update)
+
+{
+    global $db_connection;
+    $the_user_id = $_SESSION['user_id'];
+
+    $emailQuery = "SELECT email FROM users WHERE `email` = '$user_email_Update' AND `id` != '$the_user_id'";      
+                    //find the email column from the users, where the id is not equal to the current user id.
+    $runemailQuery = mysqli_query($db_connection, $emailQuery);
+
+    if (mysqli_num_rows($runemailQuery) > 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
+function updateUserDetails()
+{
+
+    global $db_connection;
+    $the_user_id = $_SESSION['user_id'];
+
+    global $user_nameUpdate;
+    global $user_email_Update;
+
+    $sql = "UPDATE users SET `name` = '$user_nameUpdate', `email` = '$user_email_Update' WHERE id = $the_user_id";
+
+    $runQuery = mysqli_query($db_connection, $sql);
+    if (!$runQuery) {
+        die("Unable to add to category");
+    } else {
+        header("Location: settings ");
+        $_SESSION['message'] = "This user profile been updated";
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>

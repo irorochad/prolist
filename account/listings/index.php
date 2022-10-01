@@ -93,6 +93,7 @@ include "../includes/functions.php";
                     ?>
                 </tbody>
             </table>
+            <div class="mt-10"></div>
         </div>
 
     </div>
