@@ -195,6 +195,12 @@ function rejectedProjects()
 <!-- End Rejected -->
 
 <?php
+// function to send email when a project is approved, rejected, and marked as featured.
+
+
+
+
+
 // function to show and hide notification messages
 function actionsMsg()
 {

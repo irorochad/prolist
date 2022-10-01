@@ -39,11 +39,12 @@ if (!isset($_GET['p_slug'])) { ?>
         }
 
         if ($page == "" || $page == 1) {
-            // If the page is empty or = 0, that's page 1
+            // If the page is empty or = 0, that's page either page 1 till the last page.
             $page_1 = 0;
         } else {
             // if we're in another page
-            $page_1 = ($page * 2) - 2;
+            $page_1 = ($page * 3) - 3;
+            // the current page * the number of posts we want to disply - the number of posts we want to display = what we'll get in the second post.
         }
 
 
@@ -52,7 +53,9 @@ if (!isset($_GET['p_slug'])) { ?>
         $total_projects = mysqli_query($db_connection, $query);
         $total_project_Count = mysqli_num_rows($total_projects);
 
-        $total_project_Count = ceil($total_project_Count / 2)
+        // the ceil() rounds floats numbers up.
+        $total_project_Count = ceil($total_project_Count / 3)
+
         //  End Pagination to show only 60 projects 
         ?>
 
@@ -60,7 +63,7 @@ if (!isset($_GET['p_slug'])) { ?>
         <hr class="mb-10 border-gray-200 sm:mx-auto dark:border-gray-700">
         <!--Project pages -->
         <div class=" mx-auto  grid gap-4 grid-rows-1 md:grid-cols-2 lg:grid-cols-4 items-center md:items-start">
-            <?php $query = "SELECT * FROM projects_info WHERE project_status = 'approved' LIMIT $page_1, 2";
+            <?php $query = "SELECT * FROM projects_info WHERE project_status = 'approved' LIMIT $page_1, 3";
 
             $fetch_all_posts_data = mysqli_query($db_connection, $query);
 
@@ -101,7 +104,8 @@ if (!isset($_GET['p_slug'])) { ?>
         <!-- Start Pagination -->
         <div class="grid px-4 py-3 mt-10 text-xs font-semibold tracking-wide text-gray-500 uppercase rounded-md dark:border-gray-700 bg-gray-100 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800">
             <span class="flex items-center col-span-3">
-                Showing 21-30 of 100
+                Showing 1-10 of 100
+               
             </span>
             <span class="col-span-2"></span>
             <!-- Pagination -->
@@ -117,9 +121,17 @@ if (!isset($_GET['p_slug'])) { ?>
                         </li> -->
                         <?php
                         for ($i = 1; $i <= $total_project_Count; $i++) {
-                            echo "<li><a href='projects?page={$i}' class='px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple'>
+                            if ($i == $page) {
+                                // if $i is = to the current page, apply this active design to it. 
+                                echo "<li><a href='projects?page={$i}' class='px-3 py-1 text-white transition-colors duration-150 bg-purple-600 border border-r-0 border-purple-600 rounded-md focus:outline-none focus:shadow-outline-purple'>
                                 {$i}
                             </a></li>";
+                            } else {
+                                // remove the active design.
+                                echo "<li><a href='projects?page={$i}' class='px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple'>
+                                {$i}
+                            </a></li>";
+                            }
                         }
 
 

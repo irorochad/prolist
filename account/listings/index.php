@@ -65,7 +65,7 @@ include "../includes/functions.php";
                         </th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody >
                     <!-- To get the table body, I'm using switch statement. The idea is if the source(url) is any of the below case, it shold display the functions for each pagesx -->
                     <?php
                     // Includes the functions in the listings folder.

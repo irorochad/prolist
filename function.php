@@ -273,7 +273,7 @@ function isFeatured()
             $slugUrl = $row['slug_url']; ?>
 
 
-            <div class="max-w-sm mx-auto mb-5 md:mr-5  h-fit w-fit bg-white rounded-lg border hover:border-gray-200 hover:shadow-lg dark:bg-gray-800 dark:border-gray-700">
+            <div class="max-w-sm mx-auto mb-5 mr-2 md:mr-5  h-fit w-fit bg-white rounded-lg border hover:border-gray-200 hover:shadow-lg dark:bg-gray-800 dark:border-gray-700">
                 <div class="flex flex-row justify-between items-center">
                     <?php echo "<img class='p-3 w-1/3  rounded-full shadow-xl' src='/prolist_admin/public/assets/img/static/$projectLogo' alt='LOGO'>" ?>
                     <h5 class="mb-2 text-2xl font-bold  text-gray-800 dark:text-gray-100  mr-5"><?php echo $project_name; ?></h5>

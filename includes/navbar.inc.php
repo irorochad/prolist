@@ -79,7 +79,7 @@
   <!-- Hamburger Icon -->
   <div class="">
     <a href="/prolist" class="flex items-center">
-      <img src="https://flowbite.com/docs/images/logo.svg" class="mr-3 h-8" alt="Logo">
+      <img src="/prolist/assets/img/logo.svg" class="mr-3 h-8" alt="Logo">
       <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-gray-100">Listing</span>
     </a>
   </div>
