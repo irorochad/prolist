@@ -85,6 +85,9 @@ function email_exists($user_email_Update)
     }
 }
 
+function updatePassword(){
+    
+}
 
 function updateUserDetails()
 {
@@ -99,7 +102,7 @@ function updateUserDetails()
 
     $runQuery = mysqli_query($db_connection, $sql);
     if (!$runQuery) {
-        die("Unable to add to category");
+        die("Unable to update user settings.");
     } else {
         header("Location: settings ");
         $_SESSION['message'] = "This user profile been updated";

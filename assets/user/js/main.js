@@ -56,12 +56,24 @@ themeToggleBtn.addEventListener("click", function () {
 
 // End DarkMode Toggle.
 
+// code to show and hide edit password Modal
 
-// const menuBTN = document.getElementById("menu-btn");
-// const mobileMenu = document.getElementById("menu");
+
+
+const showPasswordModal = document.getElementById("passwordBtn");
+const editpasswordModal = document.getElementById("editpasswordModal");
+const closePasswordModal = document.getElementById("hidepassModal");
+
+
+showPasswordModal.addEventListener("click", function() {
+  editpasswordModal.style.display = "block";
+}) 
+
+closePasswordModal.addEventListener("click", function(){
+  editpasswordModal.style.display = "none";
+})
+
 
 // menuBTN.addEventListener("click", () => {
-//   menuBTN.classList.toggle("open");
-//   mobileMenu.classList.toggle("flex");
-//   mobileMenu.classList.toggle("hidden");
+
 // });
