@@ -47,4 +47,7 @@ if (!isset($_SESSION['user_email']) && !isset($_SESSION['user_password'])) {
 </head>
 
 <body>
+  <!-- Backdrop -->
+  <div class="backdrop absolute w-full h-screen hidden bg-[#2b2424] opacity-25 z-30"></div>
+  <!-- End Backdrop -->
   <div class="flex min-h-screen bg-gray-50 dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen }">

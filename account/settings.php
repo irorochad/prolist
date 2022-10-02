@@ -13,6 +13,7 @@ include "./../includes/db/db.inc.php";
     <div class="w-full overflow-hidden rounded-lg shadow-xs">
         <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Account Profile</h2>
         <?php
+
         $the_user_id = $_SESSION['user_id'];
         $query = "SELECT * FROM users WHERE id = '$the_user_id' ";
         $fetch_user_info = mysqli_query($db_connection, $query);
@@ -57,7 +58,7 @@ include "./../includes/db/db.inc.php";
                                     <span class="sr-only">Close modal</span>
                                 </button>
                                 <div class="py-6 px-6 lg:px-8">
-                                    <form class="space-y-6" action="#">
+                                    <form class="space-y-6" action="" method="POST">
                                         <div>
                                             <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Old Password</label>
                                             <input type="password" name="oldPass" id="oldPassword" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="............" required>
@@ -67,7 +68,7 @@ include "./../includes/db/db.inc.php";
                                             <input type="password" name="newPass" id="newPassword" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
                                         </div>
 
-                                        <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">UPDATE PASSWORD</button>
+                                        <button type="submit" name="updatePassBTN" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">UPDATE PASSWORD</button>
 
                                     </form>
                                 </div>
@@ -78,6 +79,7 @@ include "./../includes/db/db.inc.php";
                     <div class="mt-10 lg:mt-0 drop-shadow-2xl rounded p-4 bg-white dark:bg-gray-800">
                         <?php
                         actionsMsg(); // After any update query, the success msg will be displayed here from the function
+                        updatePassword();
                         ?>
                         <h2 class="text-black dark:text-white text-xl">User Information</h2>
                         <hr class="mt-4" />

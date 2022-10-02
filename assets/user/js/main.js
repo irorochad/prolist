@@ -1,3 +1,9 @@
+// Backdrop on all modals - pop up
+const backdrop = document.querySelector(".backdrop");
+
+// ENd Backdrop
+
+
 // Dark Mode
 
 // On page load or when changing themes, best to add inline in `head` to avoid FOUC
@@ -67,10 +73,12 @@ const closePasswordModal = document.getElementById("hidepassModal");
 
 showPasswordModal.addEventListener("click", function() {
   editpasswordModal.style.display = "block";
+  backdrop.style.display = "block";
 }) 
 
 closePasswordModal.addEventListener("click", function(){
   editpasswordModal.style.display = "none";
+  backdrop.style.display = "none";
 })
 
 

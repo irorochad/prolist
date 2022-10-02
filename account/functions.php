@@ -50,7 +50,7 @@ function getAllProjects()
             </td>
         </tr>
 
-<?php
+    <?php
 
     } // end while loop/.
 }
@@ -74,8 +74,8 @@ function email_exists($user_email_Update)
     global $db_connection;
     $the_user_id = $_SESSION['user_id'];
 
-    $emailQuery = "SELECT email FROM users WHERE `email` = '$user_email_Update' AND `id` != '$the_user_id'";      
-                    //find the email column from the users, where the id is not equal to the current user id.
+    $emailQuery = "SELECT email FROM users WHERE `email` = '$user_email_Update' AND `id` != '$the_user_id'";
+    //find the email column from the users, where the id is not equal to the current user id.
     $runemailQuery = mysqli_query($db_connection, $emailQuery);
 
     if (mysqli_num_rows($runemailQuery) > 0) {
@@ -85,8 +85,12 @@ function email_exists($user_email_Update)
     }
 }
 
-function updatePassword(){
-    
+
+function updatePassword()
+{
+    if (isset($_POST['updatePassBTN'])) {
+        echo "working..";
+    }
 }
 
 function updateUserDetails()
