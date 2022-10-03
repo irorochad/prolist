@@ -39,12 +39,16 @@ include "./../includes/db/db.inc.php";
 
                     <!-- Button to show modal to edit password -->
                     <div class="mt-3">
-                        <button type="submit" name="passwordModal" id="passwordBtn" class="w-full bg-indigo-600 text-white rounded-md p-2">Change Password</button>
+                        <button type="submit" name="passwordModal" id="passwordBtn" class=" inline-flex text-center justify-center w-full bg-indigo-600 text-white rounded-md p-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class=" h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                            </svg>
+                            Edit Password</button>
                     </div>
                     <!-- End Button to show modal to edit password -->
 
                 </div> <!-- End Left Item -->
-
+               
                 <div class="w-full flex flex-col lg:col-start-2 lg:col-end-5 lg:ml-8">
                     <!-- Modal to change password -->
                     <div id="editpasswordModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-10 mx-auto z-50 w-full md:h-full">
@@ -61,11 +65,11 @@ include "./../includes/db/db.inc.php";
                                     <form class="space-y-6" action="" method="POST">
                                         <div>
                                             <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Old Password</label>
-                                            <input type="password" name="oldPass" id="oldPassword" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="............" required>
+                                            <input type="password" name="oldPass" id="oldPassword" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="••••••••••••••••" required>
                                         </div>
                                         <div>
                                             <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">New password</label>
-                                            <input type="password" name="newPass" id="newPassword" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                            <input type="password" name="newPass" id="newPassword" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="••••••••••••••••" required>
                                         </div>
 
                                         <button type="submit" name="updatePassBTN" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">UPDATE PASSWORD</button>

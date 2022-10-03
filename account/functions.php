@@ -62,12 +62,82 @@ function actionsMsg()
     if (isset($_SESSION['message'])) { ?>
 
         <h4 class="text-blue-600"><?= $_SESSION['message']; ?></h4>
-<?php
+    <?php
         unset($_SESSION['message']);
     }
 }
 
 
+
+// when trying to update user password, check if the old password inputed is same as the one in the database.
+function checkOldPassword()
+{
+    global $db_connection;
+    $the_user_id = $_SESSION['user_id'];
+    $oldPassword = mysqli_real_escape_string($db_connection, $_POST['oldPass']);
+
+    $passQuery = "SELECT password FROM users WHERE id = '{$the_user_id}'";
+    $runPassQuery = mysqli_query($db_connection, $passQuery);
+
+    $row = mysqli_fetch_array($runPassQuery);
+    $db_password =   $row['password'];
+
+    if (password_verify($oldPassword, $db_password)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+// Update the user password.
+function updatePassword()
+{
+    if (isset($_POST['updatePassBTN'])) {
+        global $db_connection;
+        $the_user_id = $_SESSION['user_id'];
+
+        $newPassword = mysqli_real_escape_string($db_connection, $_POST['newPass']);
+
+        $passError = [
+            'oldPass' => '',
+            'newPass' => ''
+        ];
+        // check if the old password matches what the user types
+
+        if (!checkOldPassword()) {
+            $passError['oldPass'] = 'Sorry, old password does\'t match ';
+            // echo "Old Password doesn't match";
+        }
+
+        if (strlen($newPassword) < 5) {
+            $passError['oldPass'] = 'Password must be less than 4 characters';
+        }
+
+        foreach ($passError as $key => $value) {
+            if (empty($value)) {
+                unset($passError[$key]);
+            }
+
+            if (empty($passError)) {
+                // $query = "UPDATE users SET `password` = '{$newPassword}' WHERE id = $the_user_id ";
+                $hashedPassword = password_hash($newPassword, PASSWORD_BCRYPT, array('cost'  => 12));
+
+                $query = "UPDATE users SET `password` = '{$hashedPassword}' WHERE id = $the_user_id";
+                $runInsert = mysqli_query($db_connection, $query);
+                if (!$runInsert) {
+                    die("Something went wrong");
+                } else {
+                    echo "<p class='text-blue-700'>User password has been updated</p>";
+                }
+            }
+        }
+    ?>
+        <p class="text-red-700"><?php echo isset($passError['oldPass']) ? $passError['oldPass'] : '' ?></p>
+        <p class="text-red-700"><?php echo isset($passError['newPass']) ? $passError['newPass'] : '' ?></p>
+<?php
+    }
+}
+
+// check if email exists
 function email_exists($user_email_Update)
 
 {
@@ -85,14 +155,7 @@ function email_exists($user_email_Update)
     }
 }
 
-
-function updatePassword()
-{
-    if (isset($_POST['updatePassBTN'])) {
-        echo "working..";
-    }
-}
-
+// update user details, name and email
 function updateUserDetails()
 {
 
