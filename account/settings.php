@@ -51,7 +51,7 @@ include "./../includes/db/db.inc.php";
                
                 <div class="w-full flex flex-col lg:col-start-2 lg:col-end-5 lg:ml-8">
                     <!-- Modal to change password -->
-                    <div id="editpasswordModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-10 mx-auto z-50 w-full md:h-full">
+                    <div id="editpasswordModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-10 left-0 md:left-auto z-50 w-full md:h-full">
                         <div class="relative p-4 w-full max-w-md h-full md:h-auto">
                             <!-- Modal content -->
                             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
