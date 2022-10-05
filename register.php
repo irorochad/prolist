@@ -93,25 +93,25 @@ if (isset($_POST['regBtn'])) {
     </div>
 
     <form action="register" method="post" class="w-full">
-        <div class="max-w-md w-full mx-auto bg-white dark:bg-[#77325f2d] rounded-lg p-7 space-y-7 ">
+        <div class="max-w-md w-full mx-auto bg-white dark:bg-[#77325f2d] rounded-lg shadow-xl p-7 space-y-7 ">
 
             <div class="flex flex-col">
-                <label class="text-sm font-bold text-gray-600 dark:text-gray-100  mb-1" for="name">Full Name *</label>
+                <label class="text-sm font-bold text-gray-600 dark:text-gray-300  mb-1" for="name">Full Name *</label>
                 <input class="border rounded-md bg-white dark:bg-slate-300 px-3 py-2" type="text" name="name" id="name" value="<?php echo isset($name) ? $name : '' ?>" placeholder="e.g: mrDoe" />
                 <p class="text-red-700"><?php echo isset($errorMsg['name']) ? $errorMsg['name'] : '' ?></p>
             </div>
             <div class="flex flex-col">
-                <label class="text-sm font-bold text-gray-600 dark:text-gray-100  mb-1" for="email">Email Address *</label>
+                <label class="text-sm font-bold text-gray-600 dark:text-gray-300  mb-1" for="email">Email Address *</label>
                 <input class="border rounded-md bg-white dark:bg-slate-300 px-3 py-2" type="text" name="emailId" id="email" value="<?php echo isset($email) ? $email : '' ?>" placeholder="Enter your Email Address" />
                 <p class="text-red-700"><?php echo isset($errorMsg['email']) ? $errorMsg['email'] : '' ?></p>
             </div>
             <div class="flex flex-col">
-                <label class="text-sm font-bold text-gray-600 dark:text-gray-100 mb-1" for="password">Password *</label>
+                <label class="text-sm font-bold text-gray-600 dark:text-gray-300 mb-1" for="password">Password *</label>
                 <input class="border rounded-md bg-white dark:bg-slate-300 px-3 py-2" type="password" name="passwordID" id="password" placeholder="Enter your Password" />
                 <p class="text-red-700"><?php echo isset($errorMsg['password']) ? $errorMsg['password'] : '' ?></p>
             </div>
             <div class="flex flex-col">
-                <label class="text-sm font-bold text-gray-600 dark:text-gray-100 mb-1" for="passwordconfirm">Password *</label>
+                <label class="text-sm font-bold text-gray-600 dark:text-gray-300 mb-1" for="passwordconfirm">Password *</label>
                 <input class="border rounded-md bg-white dark:bg-slate-300 px-3 py-2" type="password" name="passwordConfirm" id="passwordconfirm" placeholder="Confirm your Password" />
                 <p class="text-red-700"><?php echo isset($errorMsg['passwordConfirm']) ? $errorMsg['passwordConfirm'] : '' ?></p>
 

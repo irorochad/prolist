@@ -335,14 +335,15 @@ function isFeatured()
             }
         }
 
-        // show an inccorrect password if the password doesn't match
-        function inccorectPass()
+        // show an inccorrect password if the password doesn't match while logging in, 
+        //and show email not found when reseting account pssword
+        function formErrorMsg()
         {
-            if (isset($_SESSION['passwordNotCorrect'])) { ?>
+            if (isset($_SESSION['formError'])) { ?>
 
-                <h4 class="text-red-600"><?= $_SESSION['passwordNotCorrect']; ?></h4>
+                <h4 class="text-red-600"><?= $_SESSION['formError']; ?></h4>
         <?php
-                unset($_SESSION['passwordNotCorrect']);
+                unset($_SESSION['formError']);
             }
         }
         // Functons to login user
@@ -378,11 +379,30 @@ function isFeatured()
                 $_SESSION['user_role'] = $db_role;
                 header("Location: /prolist/account");
             } else {
-                $_SESSION['passwordNotCorrect'] = "Incorrect Password";
+                $_SESSION['formError'] = "Incorrect Password";
                 // echo "password is not correct";
                 // $errorMsg['password'] = 'Password is not correct';
                 // header("Location: login");
                 // $errorMsg['password'] = 'Password is not correct.';
+            }
+        }
+
+        // Password Reset Function!
+
+        function passwordReset()
+        {
+            global $db_connection;
+
+            $email = $_POST['email'];
+            $length = 50;
+            $reset_token = bin2hex(openssl_random_pseudo_bytes($length));
+
+            if (!email_exists($email)) {
+                // if the email is not found, use the $session to show an erorr msg. 
+                $_SESSION['formError'] = "We couldn't find that email.";
+            } else {
+                $query = "UPDATE users SET `reset_token` = '{$reset_token}' WHERE email = '{$email}'";
+                $runquery = mysqli_query($db_connection, $query);
             }
         }
         ?>

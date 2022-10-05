@@ -68,19 +68,19 @@ if (isset($_POST['loginBtn'])) {
     </p>
   </div>
   <form action="" method="post" class="w-full">
-    <div class="max-w-md w-full mx-auto bg-white dark:bg-[#77325f2d] rounded-lg p-7 space-y-6">
+    <div class="max-w-md w-full mx-auto bg-white dark:bg-[#77325f2d] rounded-lg shadow-xl p-7 space-y-6">
 
       <div class="flex flex-col">
-        <label class="text-sm font-bold text-gray-600 mb-1" for="email">Email Address</label>
+        <label class="text-sm font-bold text-gray-600 dark:text-gray-300 mb-1" for="email">Email Address</label>
         <input class="border rounded-md bg-white dark:bg-slate-300 px-3 py-2" type="email" name="email" id="email" value="<?php echo isset($email) ? $email : '' ?>" placeholder="Enter your Email Address" />
         <p class="text-red-700"><?php echo isset($errorMsg['email']) ? $errorMsg['email'] : '' ?></p>
       </div>
       <div class="flex flex-col">
-        <label class="text-sm font-bold text-gray-600 mb-1" for="password">Password</label>
+        <label class="text-sm font-bold text-gray-600 dark:text-gray-300 mb-1" for="password">Password</label>
         <input class="border rounded-md bg-white dark:bg-slate-300 px-3 py-2" type="password" name="password" id="password" placeholder="Enter your Password" />
         <p class="text-red-700"><?php echo isset($errorMsg['password']) ? $errorMsg['password'] : '' ?></p>
         <!-- If password doens't match, call this function to show an incoorect passcode -->
-        <?php inccorectPass(); ?>
+        <?php formErrorMsg(); ?>
       </div>
       <div class="flex justify-between text-sm">
         <div class="flex items-center space-x-2">
@@ -88,7 +88,7 @@ if (isset($_POST['loginBtn'])) {
           <label for="remember" class="text-gray-600">Stay Logged In</label>
         </div>
         <div>
-          <a href="#" class="text-indigo-600">Forgot your Password?</a>
+          <a href="forgot?resetpass=<?php echo uniqid(); ?>" class="text-indigo-600">Forgot your Password?</a>
         </div>
       </div>
       <div>
