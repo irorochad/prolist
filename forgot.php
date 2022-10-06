@@ -1,6 +1,10 @@
-
-
 <?php
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+// HEader Meta tags
 $page_title = "Reset your password";
 $page_description = "Prolist helps you find and discover crypto projects with accurate informations";
 ?>
@@ -9,6 +13,12 @@ $page_description = "Prolist helps you find and discover crypto projects with ac
 include "function.php"; ?>
 
 <?php
+
+// Include the php mailer configuration files
+require './vendor/autoload.php';
+
+
+
 // if the user did not pass in the GET ? method, he should be redirected to the login page. 
 if (!isset($_GET['resetpass'])) {
     header("Location: login");
@@ -17,7 +27,52 @@ if (!isset($_GET['resetpass'])) {
 // Call the reset password function to hadle the reset calling.
 if (isset($_POST['email'])) {
     $email = $_POST['email'];
-    passwordReset();
+    $length = 50;
+    $reset_token = bin2hex(openssl_random_pseudo_bytes($length));
+
+    if (!email_exists($email)) {
+        // if the email is not found, use the $session to show an erorr msg. 
+        $_SESSION['formError'] = "We couldn't find that email.";
+    } else {
+        $query = "UPDATE users SET `reset_token` = '{$reset_token}' WHERE email = '{$email}'";
+        $runquery = mysqli_query($db_connection, $query);
+
+
+        /*  
+            SMTP CODES TO /CONFIGURE SEND EMAILS
+        */
+        //Server settings
+        $mail = new PHPMailer(true);
+        $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+        $mail->isSMTP();                                            //Send using SMTP
+        $mail->Host       = Config::SMTP_HOST;                       //Set the SMTP server to send through
+        $mail->SMTPAuth   = true;                                    //Enable SMTP authentication
+        $mail->Username   = Config::SMTP_USERNAME;                   //SMTP username
+        $mail->Password   = Config::SMTP_PASSWORD;                     //SMTP password
+        $mail->SMTPSecure = 'tls';                                     // Enable TLS encryption, `ssl` also accepted
+        $mail->Port = Config::SMTP_PORT;
+
+        // $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+        // $mail->Port       = 25;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+
+        //Recipients
+        $mail->setFrom('prolist@coinrach.com', 'coinrach');
+        $mail->addAddress($email);     //the email the user entered.
+
+        //Content
+        $mail->isHTML(true);                                  //Set email format to HTML
+        $mail->CharSet = 'UTF-8';
+        $mail->Subject = 'Here is the subject';
+        $mail->Body    = "You're <b>about</b> to reset your pasword, <i>click</i> on the button below to rest it.";
+        $mail->AltBody = "You're about to reset your pasword, click on the button below to rest it.";
+
+        if ($mail->send()) {
+            echo "password confimation email as been sent.";
+        } else {
+            echo "We're having issues sending an email";
+        }
+    }
 }
 
 
