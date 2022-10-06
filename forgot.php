@@ -1,3 +1,5 @@
+
+
 <?php
 $page_title = "Reset your password";
 $page_description = "Prolist helps you find and discover crypto projects with accurate informations";
