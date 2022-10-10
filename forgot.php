@@ -20,7 +20,7 @@ require './vendor/autoload.php';
 
 
 // if the user did not pass in the GET ? method, he should be redirected to the login page. 
-if (!isset($_GET['resetpass'])) {
+if (!isset($_GET['forgot'])) {
     header("Location: login");
 }
 
@@ -28,13 +28,13 @@ if (!isset($_GET['resetpass'])) {
 if (isset($_POST['email'])) {
     $email = $_POST['email'];
     $length = 50;
-    $reset_token = bin2hex(openssl_random_pseudo_bytes($length));
+    $token = bin2hex(openssl_random_pseudo_bytes($length));
 
     if (!email_exists($email)) {
         // if the email is not found, use the $session to show an erorr msg. 
         $_SESSION['formError'] = "We couldn't find that email.";
     } else {
-        $query = "UPDATE users SET `reset_token` = '{$reset_token}' WHERE email = '{$email}'";
+        $query = "UPDATE users SET `token` = '{$token}' WHERE email = '{$email}'";
         $runquery = mysqli_query($db_connection, $query);
 
 
@@ -43,7 +43,8 @@ if (isset($_POST['email'])) {
         */
         //Server settings
         $mail = new PHPMailer(true);
-        $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+        $mail->SMTPDebug = false;
+        // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
         $mail->isSMTP();                                            //Send using SMTP
         $mail->Host       = Config::SMTP_HOST;                       //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                    //Enable SMTP authentication
@@ -63,18 +64,22 @@ if (isset($_POST['email'])) {
         //Content
         $mail->isHTML(true);                                  //Set email format to HTML
         $mail->CharSet = 'UTF-8';
-        $mail->Subject = 'Here is the subject';
-        $mail->Body    = "You're <b>about</b> to reset your pasword, <i>click</i> on the button below to rest it.";
+        $mail->Subject = 'Password Confirmation';
+        $mail->Body    = "<div><p>Hey, <br /> <br /> You're <b>about</b> to reset your pasword, <i>click</i> on the button below to rest it.<br/><br/> </p> 
+        <a href='http://localhost/prolist/reset?email=$email&token=$token'>CLICK HERE</a>
+        </div>";
         $mail->AltBody = "You're about to reset your pasword, click on the button below to rest it.";
 
         if ($mail->send()) {
-            echo "password confimation email as been sent.";
+            // if email was sent, we'll set a variable to true, else it will be false by default
+            $emailSent = true;
+            // echo "password confimation email as been sent.";
+
         } else {
-            echo "We're having issues sending an email";
+            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
     }
 }
-
 
 ?>
 
@@ -89,18 +94,22 @@ if (isset($_POST['email'])) {
     </div>
     <form action="" method="post" class="w-full">
         <div class="max-w-md w-full mx-auto bg-white dark:bg-[#77325f2d] rounded-lg shadow-xl p-7 space-y-6">
+            <?php if (!isset($emailSent)) : ?>
+                <div class="flex flex-col">
+                    <label class="text-sm font-bold text-gray-600 dark:text-gray-300 mb-1" for="email">Email Address</label>
+                    <input class="border rounded-md bg-white dark:bg-slate-300 px-3 py-2" type="email" name="email" id="email" value="<?php echo isset($email) ? $email : '' ?>" placeholder="Enter your Email Address" />
+                    <!-- If the email is not found, call this function to show the error. -->
+                    <?php formErrorMsg(); ?>
+                </div>
 
-            <div class="flex flex-col">
-                <label class="text-sm font-bold text-gray-600 dark:text-gray-300 mb-1" for="email">Email Address</label>
-                <input class="border rounded-md bg-white dark:bg-slate-300 px-3 py-2" type="email" name="email" id="email" value="<?php echo isset($email) ? $email : '' ?>" placeholder="Enter your Email Address" />
-                <!-- If the email is not found, call this function to show the error. -->
-                <?php formErrorMsg(); ?>
-            </div>
-
-            <div>
-                <button name="loginBtn" class="w-full bg-indigo-600 text-white rounded-md p-2">Reset Password</button>
-            </div>
-
+                <div>
+                    <button name="loginBtn" class="w-full bg-indigo-600 text-white rounded-md p-2">Reset Password</button>
+                </div>
+            <?php else : ?>
+                <div>
+                    <p class="text-sm font-bold text-gray-600 dark:text-gray-300 uppercase"><?php echo "A rest email has been mailed to: " . $email; ?></p>
+                </div>
+            <?php endif; ?>
         </div>
     </form>
 </main>

@@ -28,7 +28,7 @@ if (isset($_POST['loginBtn'])) {
 
   // check if the email doesn't exsits
   if (!email_exists($email)) {
-    $errorMsg['email'] = 'We couldn\'t find that email. ' . " " . "<a href='register'>Create Account here</a>";
+    $errorMsg['email'] = 'We couldn\'t find that email. ' . " " . "<a href='register' class='text-indigo-600 text-sm'>Create Account here</a>";
   }
  
 
@@ -88,7 +88,7 @@ if (isset($_POST['loginBtn'])) {
           <label for="remember" class="text-gray-600">Stay Logged In</label>
         </div>
         <div>
-          <a href="forgot?resetpass=<?php echo uniqid(); ?>" class="text-indigo-600">Forgot your Password?</a>
+          <a href="forgot?forgot=<?php echo uniqid(); ?>" class="text-indigo-600">Forgot your Password?</a>
         </div>
       </div>
       <div>
