@@ -103,11 +103,11 @@ if (isset($_POST['email'])) {
                 </div>
 
                 <div>
-                    <button name="loginBtn" class="w-full bg-indigo-600 text-white rounded-md p-2">Reset Password</button>
+                    <button name="loginBtn" class="w-full bg-indigo-600 text-white rounded-md p-2">Send Me a Link</button>
                 </div>
             <?php else : ?>
                 <div>
-                    <p class="text-sm font-bold text-gray-600 dark:text-gray-300 uppercase"><?php echo "A rest email has been mailed to: " . $email; ?></p>
+                    <p class="text-sm font-bold text-gray-600 dark:text-gray-300 uppercase"><?php echo "A reset email has been mailed over to: " . $email; ?></p>
                 </div>
             <?php endif; ?>
         </div>

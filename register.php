@@ -55,7 +55,7 @@ if (isset($_POST['regBtn'])) {
 
     // Check if the passowrd is less then 5 characters
     if (strlen($passwordID) < 5) {
-        $errorMsg['password'] = 'Password cannot be less than 4 characters.';
+        $errorMsg['password'] = 'Password cannot be less than 6 characters.';
     }
 
     // Check if the passowrd is empty;
