@@ -23,19 +23,20 @@ if (isset($_GET['email']) && isset($_GET['token'])) {
         I'm unable to make this happen - Do a check to see if the email and token is in our database,
 
         Currently, It's not working, I'm getting an erro if the email is found in the DB but the token is not
-        
-    */ 
-    $query = "SELECT email, token from users WHERE `token` = '$token'";
-    $queryRun = mysqli_query($db_connection, $query);
 
-    while ($row = mysqli_fetch_assoc($queryRun)) {
-        $DB_email = $row['email'];
-        $DB_token = $row['token'];
-    }
-    // if the email and token passes in the URl does not match what's in our DB, show invalidRequest!
-    if ($email != $DB_email || $token != $DB_token) {
-        $invalidRequest = false;
-    }
+
+        $query = "SELECT email, token from users WHERE `token` = '$token'";
+        $queryRun = mysqli_query($db_connection, $query);
+
+        while ($row = mysqli_fetch_assoc($queryRun)) {
+            $DB_email = $row['email'];
+            $DB_token = $row['token'];
+        }
+        // if the email and token passes in the URl does not match what's in our DB, show invalidRequest!
+        if ($email != $DB_email || $token != $DB_token) {
+            $invalidRequest = false;
+        }
+    */
 
 
     // If the reset button is pressed;
@@ -47,8 +48,7 @@ if (isset($_GET['email']) && isset($_GET['token'])) {
         // the function to unset/clear the session is in the functons.php
         if (strlen($pass) < 5) {
             $_SESSION['formError'] = "Password must be at least 6 characters long";
-        }
-        if ($pass !== $passConfirm) {
+        } else if ($pass !== $passConfirm) {
             $_SESSION['formError'] = "Password doesn't match!";
         } else {
             // if there are no errors, do this;
@@ -57,10 +57,9 @@ if (isset($_GET['email']) && isset($_GET['token'])) {
             $runQuery = mysqli_query($db_connection, $query);
 
             if ($runQuery) {
-                /* redirect the user to login page.
-                the login function is in the functions.php
-                */
-                user_login($emailId, $password);
+                /* redirect the user to login page.*/
+                $_SESSION['loginRedirect'] = "Password changed! Please login now.";
+                header("Location: login");
             } else {
                 // Show an error msg using sessions that something is wrong.
                 $_SESSION['formError'] = "Something went wrong, please try again!";

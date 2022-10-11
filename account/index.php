@@ -16,8 +16,9 @@ include "functions.php";
     <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
       Dashboard
     </h2>
+    
     <h4 class="mb-3 font-light text-gray-700 dark:text-gray-200">Welcome <span class="font-bold"><?php echo $_SESSION['user_name']; ?></span></h4>
-
+    
     <!-- Information Cards -->
     <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-3">
       <!-- Card  -->
@@ -29,7 +30,8 @@ include "functions.php";
         </div>
         <div>
           <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-            My Listed Project
+            My Listed Project 
+            
           </p>
           <p class="text-lg font-normal text-gray-700 dark:text-gray-200">
             <?php myProjectCounts(); ?>

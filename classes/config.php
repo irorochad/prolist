@@ -4,11 +4,11 @@ use PHPMailer\PHPMailer\SMTP;
 
     class Config {
         // smtp host
-        const SMTP_HOST = 'smtp.mailtrap.io' ;
+        const SMTP_HOST = 'server110.web-hosting.com' ;
 
         // smtp port
-        const SMTP_PORT = '25' ;
+        const SMTP_PORT = '465' ;
         // smtp Username && PASSWORD
-        const SMTP_USERNAME = 'bd2845120ed67b' ;
-        const SMTP_PASSWORD = '5cdefedf7bb4a7' ;
+        const SMTP_USERNAME = 'prolist@coinrach.com' ;
+        const SMTP_PASSWORD = 'm9RTd4-FV)bx' ;
     }

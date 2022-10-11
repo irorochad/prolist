@@ -12,7 +12,7 @@ include "function.php"; ?>
 <?php
 // If a user_name session is set, and the user wants to go back to login page,
 //  he'll be redirected to account
-if(isset($_SESSION['user_name'])){
+if (isset($_SESSION['user_name'])) {
   header("location: /prolist/account");
 }
 if (isset($_POST['loginBtn'])) {
@@ -30,7 +30,7 @@ if (isset($_POST['loginBtn'])) {
   if (!email_exists($email)) {
     $errorMsg['email'] = 'We couldn\'t find that email. ' . " " . "<a href='register' class='text-indigo-600 text-sm'>Create Account here</a>";
   }
- 
+
 
   // check if email is empty
   if ($email == '') {
@@ -56,6 +56,7 @@ if (isset($_POST['loginBtn'])) {
   }
 }
 
+
 ?>
 
 
@@ -66,7 +67,9 @@ if (isset($_POST['loginBtn'])) {
       Or
       <a href="register" class="font-medium text-indigo-600 border-b border-indigo-600"> create your FREE account </a>
     </p>
+    <p class="mt-2 text-center text-md text-gray-600 dark:text-gray-300"><?php redirectToLogin(); ?></p>
   </div>
+  
   <form action="" method="post" class="w-full">
     <div class="max-w-md w-full mx-auto bg-white dark:bg-[#77325f2d] rounded-lg shadow-xl p-7 space-y-6">
 

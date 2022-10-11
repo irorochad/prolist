@@ -111,7 +111,7 @@ if (isset($_POST['regBtn'])) {
                 <p class="text-red-700"><?php echo isset($errorMsg['password']) ? $errorMsg['password'] : '' ?></p>
             </div>
             <div class="flex flex-col">
-                <label class="text-sm font-bold text-gray-600 dark:text-gray-300 mb-1" for="passwordconfirm">Password *</label>
+                <label class="text-sm font-bold text-gray-600 dark:text-gray-300 mb-1" for="passwordconfirm">Confirm Password *</label>
                 <input class="border rounded-md bg-white dark:bg-slate-300 px-3 py-2" type="password" name="passwordConfirm" id="passwordconfirm" placeholder="Confirm your Password" />
                 <p class="text-red-700"><?php echo isset($errorMsg['passwordConfirm']) ? $errorMsg['passwordConfirm'] : '' ?></p>
 

@@ -21,6 +21,7 @@ require './vendor/autoload.php';
 
 // if the user did not pass in the GET ? method, he should be redirected to the login page. 
 if (!isset($_GET['forgot'])) {
+    $_SESSION['loginRedirect'] = "Please, click on the forgot password to get an ID.";
     header("Location: login");
 }
 
@@ -50,7 +51,7 @@ if (isset($_POST['email'])) {
         $mail->SMTPAuth   = true;                                    //Enable SMTP authentication
         $mail->Username   = Config::SMTP_USERNAME;                   //SMTP username
         $mail->Password   = Config::SMTP_PASSWORD;                     //SMTP password
-        $mail->SMTPSecure = 'tls';                                     // Enable TLS encryption, `ssl` also accepted
+        $mail->SMTPSecure = 'ssl';                                     // Enable TLS encryption, `ssl` also accepted
         $mail->Port = Config::SMTP_PORT;
 
         // $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption

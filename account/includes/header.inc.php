@@ -4,6 +4,7 @@ session_start(); ?>
 <!-- If the user is not logged in, and tries to access the user account page, take them back to login -->
 <?php
 if (!isset($_SESSION['user_email']) && !isset($_SESSION['user_password'])) {
+  $_SESSION['loginRedirect'] = "Please, login to access your dashboard!";
   header("Location: /prolist/login");
 }
 ?>
@@ -34,15 +35,15 @@ if (!isset($_SESSION['user_email']) && !isset($_SESSION['user_password'])) {
   <meta property="og:url" content="https://example.com">
 
   <link rel="stylesheet" href="/prolist/assets/tailscss/output.css" />
-  <link rel="stylesheet" href="/prolist/assets/css/index.css"/>
+  <link rel="stylesheet" href="/prolist/assets/css/index.css" />
 
   <!-- Add project -->
-  <link rel="stylesheet" href="/prolist/assets/user/css/index.css"/>
+  <link rel="stylesheet" href="/prolist/assets/user/css/index.css" />
 
   <!-- WYSIWYG -->
   <script src="/prolist/assets/user/js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
   <!-- WYSIWYG -->
-<!-- End projects -->
+  <!-- End projects -->
 
 </head>
 

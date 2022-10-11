@@ -2,10 +2,11 @@
 include "./includes/sidebar.inc.php";
 include "./includes/navbar.inc.php";
 include "./../includes/db/db.inc.php";
-?>
 
-<!-- Include the function in the root folder of the account folder -->
-<?php include "functions.php"; ?>
+
+// Include the function in the root folder of the account folder 
+include "functions.php";
+?>
 
 
 
@@ -35,8 +36,8 @@ include "./../includes/db/db.inc.php";
                             <p class="mb-1 text-sm text-gray-900 dark:text-white"><?php echo "Registered on: $joined_date" ?></p>
                         </div>
                     </div>
-
-
+                   
+                   
                     <!-- Button to show modal to edit password -->
                     <div class="mt-3">
                         <button type="submit" name="passwordModal" id="passwordBtn" class=" inline-flex text-center justify-center w-full bg-indigo-600 text-white rounded-md p-2">
@@ -48,7 +49,7 @@ include "./../includes/db/db.inc.php";
                     <!-- End Button to show modal to edit password -->
 
                 </div> <!-- End Left Item -->
-               
+
                 <div class="w-full flex flex-col lg:col-start-2 lg:col-end-5 lg:ml-8">
                     <!-- Modal to change password -->
                     <div id="editpasswordModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-10 left-0 md:left-auto z-50 w-full md:h-full">

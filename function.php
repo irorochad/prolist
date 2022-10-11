@@ -331,6 +331,7 @@ function isFeatured()
             if (!$runInsert) {
                 die("Something went wrong");
             } else {
+                $_SESSION['loginRedirect'] = "Account created! Please login.";
                 header("Location: login");
             }
         }
@@ -342,7 +343,7 @@ function isFeatured()
             if (isset($_SESSION['formError'])) { ?>
 
                 <h4 class="text-red-600"><?= $_SESSION['formError']; ?></h4>
-        <?php
+            <?php
                 unset($_SESSION['formError']);
             }
         }
@@ -386,5 +387,22 @@ function isFeatured()
                 // $errorMsg['password'] = 'Password is not correct.';
             }
         }
-       
+
+
+        /*
+            BRAND NEW CODE - TO SHOW MESSAGES WHEN THE USER IS REDIRECTED BACK TO THE LOGIN PAGE BASED ON SOME REQUESTS. 
+            e.g: when a user is not logged and they try to access the account page, they'll be redirected here and show a session message
+            that they need to login first.
+            */
+
+        function redirectToLogin()
+        {
+            if (isset($_SESSION['loginRedirect'])) { ?>
+
+                <h4 class="text-red-600"><?= $_SESSION['loginRedirect']; ?></h4>
+        <?php
+                unset($_SESSION['loginRedirect']);
+            }
+        }
+
         ?>

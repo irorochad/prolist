@@ -3,7 +3,6 @@ const backdrop = document.querySelector(".backdrop");
 
 // ENd Backdrop
 
-
 // Dark Mode
 
 // On page load or when changing themes, best to add inline in `head` to avoid FOUC
@@ -64,24 +63,32 @@ themeToggleBtn.addEventListener("click", function () {
 
 // code to show and hide edit password Modal
 
-
-
 const showPasswordModal = document.getElementById("passwordBtn");
 const editpasswordModal = document.getElementById("editpasswordModal");
 const closePasswordModal = document.getElementById("hidepassModal");
 
+if (showPasswordModal) {
+  showPasswordModal.addEventListener("click", function () {
+    editpasswordModal.style.display = "block";
+    backdrop.style.display = "block";
+  });
+}
 
-showPasswordModal.addEventListener("click", function() {
-  editpasswordModal.style.display = "block";
-  backdrop.style.display = "block";
-}) 
-
-closePasswordModal.addEventListener("click", function(){
-  editpasswordModal.style.display = "none";
-  backdrop.style.display = "none";
-})
-
+if (closePasswordModal) {
+  closePasswordModal.addEventListener("click", function () {
+    editpasswordModal.style.display = "none";
+    backdrop.style.display = "none";
+  });
+}
 
 // menuBTN.addEventListener("click", () => {
 
 // });
+
+// code to make the project action : to show the actions
+
+const projectActions = document.querySelectorAll(".pActions");
+
+projectActions.addEventListener("click", function () {
+  alert("I'm alerting.");
+});
