@@ -12,55 +12,65 @@ $page_description = "Prolist helps you find and discover crypto projects with ac
 
 
 <?php
-if (!isset($_GET['email']) && !isset($_GET['token'])) {
+// if the email and token param was passed from the email, do this;
+if (isset($_GET['email']) && isset($_GET['token'])) {
+
+    $token = $_GET['token'];
+    $email = $_GET['email'];
+
+
+    /*
+        I'm unable to make this happen - Do a check to see if the email and token is in our database,
+
+        Currently, It's not working, I'm getting an erro if the email is found in the DB but the token is not
+        
+    */ 
+    $query = "SELECT email, token from users WHERE `token` = '$token'";
+    $queryRun = mysqli_query($db_connection, $query);
+
+    while ($row = mysqli_fetch_assoc($queryRun)) {
+        $DB_email = $row['email'];
+        $DB_token = $row['token'];
+    }
+    // if the email and token passes in the URl does not match what's in our DB, show invalidRequest!
+    if ($email != $DB_email || $token != $DB_token) {
+        $invalidRequest = false;
+    }
+
+
+    // If the reset button is pressed;
+    if (isset($_POST['resetBtn'])) {
+        $pass =  mysqli_real_escape_string($db_connection, $_POST['passwordID']);
+        $passConfirm = mysqli_real_escape_string($db_connection, $_POST['passwordConfirm']);
+
+        // if the form has any error, I'm using a session to pass an error 
+        // the function to unset/clear the session is in the functons.php
+        if (strlen($pass) < 5) {
+            $_SESSION['formError'] = "Password must be at least 6 characters long";
+        }
+        if ($pass !== $passConfirm) {
+            $_SESSION['formError'] = "Password doesn't match!";
+        } else {
+            // if there are no errors, do this;
+            $hashedPassword = password_hash($passConfirm, PASSWORD_BCRYPT, array('cost'  => 12));
+            $query = "UPDATE `users` SET `password` = '$hashedPassword', `token` = '' WHERE `email` = '$email'";
+            $runQuery = mysqli_query($db_connection, $query);
+
+            if ($runQuery) {
+                /* redirect the user to login page.
+                the login function is in the functions.php
+                */
+                user_login($emailId, $password);
+            } else {
+                // Show an error msg using sessions that something is wrong.
+                $_SESSION['formError'] = "Something went wrong, please try again!";
+            }
+        }
+    }
+} else {
     // header("Location: login");
     $invalidRequest = false;
 }
-
-
-
-$token = '059de0e19b38eb70c08ac920f85fa2657f618f121b187756ffecd9a7ec5124dc48be89aa3daf4faf5f1513cbdcbb04fa2b25';
-$id = 2;
-
-$query = "SELECT id, email, token from users WHERE `token` = '$token'";
-$queryRun = mysqli_query($db_connection, $query);
-
-// while($row = mysqli_fetch_assoc($queryRun)){
-//     $email = $row['email'];
-//     echo "<p class='text-white'>$email</p>";
-// }
-
-// if the email and token passes in the URl does not match what's in our DB, then redirect user!
-// if (($_GET['email'] !== '$email') || $_GET['token'] !== '$token') {
-//     echo "You're not supposed to be here";
-// }
-
-
-if (isset($_POST['resetBtn'])) {
-    $pass =  mysqli_real_escape_string($db_connection, $_POST['passwordID']);
-    $passConfirm = mysqli_real_escape_string($db_connection, $_POST['passwordConfirm']);
-
-    // if the form has any error, I'm using a session to pass an error 
-    // the function to unset/clear the session is in the functons.php
-    if (strlen($pass) < 5) {
-        $_SESSION['formError'] = "Password must be at least 6 characters long";
-    }
-    if ($pass !== $passConfirm) {
-        $_SESSION['formError'] = "Password doesn't match!";
-    } else {
-        $hashedPassword = password_hash($passConfirm, PASSWORD_BCRYPT, array('cost'  => 12));
-        $query = "UPDATE `users` SET `password` = '$hashedPassword', `token` = '' WHERE `id` = '$id'";
-        $runQuery = mysqli_query($db_connection, $query);
-
-        if ($runQuery) {
-            echo "It's affected";
-        } else {
-            echo "Something went wrong - please try again.";
-        }
-    }
-}
-
-
 ?>
 
 
@@ -82,7 +92,7 @@ if (isset($_POST['resetBtn'])) {
                 </div>
             <?php else : ?>
                 <div>
-                    <p class="text-gray-600 dark:text-gray-200">Invalid reset data passed. Please, go <a href="login" class="text-blue-600">back and try requesting a reset link again!</a></p>
+                    <p class="text-gray-600 dark:text-gray-200">Invalid reset parameter passed. Please, go <a href="login" class="text-blue-600">back and try requesting a reset link again!</a></p>
                 </div>
             <?php endif; ?>
         </div>
