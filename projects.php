@@ -79,7 +79,7 @@ if (!isset($_GET['p_slug'])) { ?>
 
                     <div class="flex flex-row justify-between items-center">
 
-                        <?php echo "<img class='p-3 w-1/3  rounded-full shadow-xl' src='/prolist_admin/public/assets/img/static/$projectLogo' alt='LOGO'>" ?>
+                        <?php echo "<img class='p-3 w-1/3  rounded-full shadow-xl' src='/images.prolist/$projectLogo' alt='LOGO'>" ?>
 
                         <h5 class="mb-2 text-2xl font-bold  text-gray-800 dark:text-gray-100  mr-5"><?php echo $project_name; ?></h5>
 

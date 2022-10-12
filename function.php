@@ -115,7 +115,7 @@ function projectIsListed()
                 <div class="flex justify-start items-center w-full">
                     <!-- Logo Container -->
 
-                    <?php echo "<img class='p-3 w-1/3 md:w-1/5 rounded-full shadow-xl' src='/prolist_admin/public/assets/img/static/$projectLogo' alt='LOGO'>" ?>
+                    <?php echo "<img class='p-3 w-1/3 md:w-1/5 rounded-full shadow-xl' src='/images.prolist/$projectLogo' alt='LOGO'>" ?>
 
                     <!-- End Logo Container -->
                     <div class="flex flex-col pl-4 text-gray-800 dark:text-gray-100">
@@ -275,7 +275,7 @@ function isFeatured()
 
             <div class="max-w-sm mx-auto mb-5 mr-2 md:mr-5  h-fit w-fit bg-white rounded-lg border hover:border-gray-200 hover:shadow-lg dark:bg-gray-800 dark:border-gray-700">
                 <div class="flex flex-row justify-between items-center">
-                    <?php echo "<img class='p-3 w-1/3  rounded-full shadow-xl' src='/prolist_admin/public/assets/img/static/$projectLogo' alt='LOGO'>" ?>
+                    <?php echo "<img class='p-3 w-1/3  rounded-full shadow-xl' src='/images.prolist/$projectLogo' alt='LOGO'>" ?>
                     <h5 class="mb-2 text-2xl font-bold  text-gray-800 dark:text-gray-100  mr-5"><?php echo $project_name; ?></h5>
 
                 </div>

@@ -52,7 +52,7 @@ include "./../includes/db/db.inc.php";
                             Date
                         </th>
                         <th scope="col" class="py-3 px-6">
-                            Action
+                            Actions
                         </th>
                     </tr>
                 </thead>

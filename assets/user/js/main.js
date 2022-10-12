@@ -87,8 +87,14 @@ if (closePasswordModal) {
 
 // code to make the project action : to show the actions
 
-const projectActions = document.querySelectorAll(".pActions");
+// const projectActions = document.querySelectorAll("button.pActions");
+// const thePActionsItems = document.querySelectorAll("button.pActionsItem");
 
-projectActions.addEventListener("click", function () {
-  alert("I'm alerting.");
-});
+// projectActions.forEach((n) =>
+//   n.addEventListener("click", function () {
+//     // alert("I'm alerting.");
+//     n.parentElement.getAttribute("id");
+//     thePActionsItems.style.display = "block";
+//   })
+// );
+
