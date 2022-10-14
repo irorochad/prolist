@@ -30,8 +30,9 @@ function sendData()
     
     $projectLogo = $_FILES["project_logo"]["name"];
     $project_logo_temp = $_FILES["project_logo"]["tmp_name"];
-
-    // move_uploaded_file($project_logo_temp, "/prolist_admin/public/assets/img/static/$projectLogo");
+    
+    $uploads_dir = realpath('../../../images.prolist');
+    move_uploaded_file($project_logo_temp, "$uploads_dir/$projectLogo");
 
     $query = "INSERT INTO projects_info(user_id, project_logo, project_name, project_content, categories, project_tags, project_mainsite, slug_url, date_founded) ";
     $query .= "VALUES ('{$user_id}', '{$projectLogo}', '" . $projectName . "', '" . $projectAbout . "', '" . $Projectcategories . "', '" . $projectTags . "', '" . $projetWebsite . "', '" . getSlugUrl($projectName) . "', '" . $projectLauncDate . "')";

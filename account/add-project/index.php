@@ -46,6 +46,7 @@
                     sendData();
                 }
                 ?>
+                
                 <form method="POST" action=""  enctype="multipart/form-data">
                     <fieldset>
                         <div class="form_1 data_info">
