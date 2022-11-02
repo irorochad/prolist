@@ -42,20 +42,34 @@ function getAllProjects()
             <td class='py-4 px-6'>
                 <?php echo $project_date; ?>
             </td>
-            <td class='py-4 px-6'>
-                <div class="flex flex-row">
-                    <!-- <button class='pActions font-medium text-blue-600 dark:text-blue-500 hover:underline'><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
-                        </svg>
-                    </button> -->
-                    <a href=" #" class="py-2 px-4 font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                    <!-- <a href=" #" class=" py-2 px-4 font-medium text-blue-600 dark:text-blue-500  hover:underline">Make Featured</a> -->
-                    <a href=" #" class="py-2 px-4 font-medium text-blue-600 dark:text-blue-500 hover:underline">Remove</a>
-
-                </div>
+            <td class='py-4 px-6' id="<?php echo $id; ?>">
+                <button class='pActions font-medium text-blue-600 dark:text-blue-500 hover:underline'><svg xmlns=" http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
+                    </svg>
+                </button>
             </td>
         </tr>
-
+        <!-- Dropdown menu -->
+        <div id="pActionsItem" class="relative z-50 md:inset-0 justify-center items-center hidden">
+            <div class=" absolute top-10 right-4 p-4  max-w-md h-full md:h-auto">
+                <ul class="py-1 text-sm text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700">
+                    <form method="POST">
+                        <li>
+                            <input value='' id='hidden_post_id' name="the_id" type="hidden"/>
+                        </li>
+                        <li>
+                            <button name="editProject" class="w-full block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</button>
+                        </li>
+                        <li>
+                        <button name="editProject" class="w-full block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sponsor</button>
+                        </li>
+                        <li>
+                        <button name="editProject" class="w-full block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Request Removal</button>
+                        </li>
+                    </form>
+                </ul>
+            </div>
+        </div>
     <?php
 
     } // end while loop/.
@@ -72,6 +86,21 @@ function actionsMsg()
         unset($_SESSION['message']);
     }
 }
+
+/* 
+    Functions to edit, delete, and sponser projects
+*/
+// global $db_connection;
+if (isset($_POST['editProject'])) {
+    $the_id = $_POST['the_id'];
+    echo "You've cliked on the " . $the_id . " , to edit it";
+  }
+/* 
+    End Functions to edit, delete, and sponser projects
+*/
+
+
+
 
 
 

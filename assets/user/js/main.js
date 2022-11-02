@@ -87,14 +87,17 @@ if (closePasswordModal) {
 
 // code to make the project action : to show the actions
 
-// const projectActions = document.querySelectorAll("button.pActions");
-// const thePActionsItems = document.querySelectorAll("button.pActionsItem");
+const projectActions = document.querySelectorAll("button.pActions");
+const thePActionsItems = document.querySelector("#pActionsItem");
 
-// projectActions.forEach((n) =>
-//   n.addEventListener("click", function () {
-//     // alert("I'm alerting.");
-//     n.parentElement.getAttribute("id");
-//     thePActionsItems.style.display = "block";
-//   })
-// );
+if(projectActions) {
+  projectActions.forEach((n) =>
+  n.addEventListener("click", function () {
+    document.getElementById("hidden_post_id").value =
+      n.parentElement.getAttribute("id");
+      // console.log(n.parentElement);
+    thePActionsItems.style.display = "block";
+  })
+);
+}
 
