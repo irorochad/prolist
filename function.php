@@ -150,7 +150,7 @@ function projectIsListed()
             <!-- Left Item -->
             <div class="flex flex-col md:col-start-1 md:col-end-3 w-full text-left p-4">
                 <h1 class="text-3xl md:text-2xl font-bold font-Poppins mb-4 text-gray-800 dark:text-gray-200">About Project</h1>
-                <div class="font-Poppins text-gray-600 dark:text-gray-200">
+                <div class="font-Poppins text-gray-600 dark:text-gray-200" id="projectDiv">
                     <?php echo $project_content; ?>
                 </div>
                 <div class="flex flex-row items-center">

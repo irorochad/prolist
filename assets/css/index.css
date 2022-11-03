@@ -1,9 +1,8 @@
 /* MAX Width for any screen */
 body {
-  width:100%;
+  width: 100%;
   max-width: 1809px;
   margin: auto;
-
 }
 /* End Max Width */
 
@@ -80,3 +79,9 @@ input:focus {
 }
 
 /* End OWl syles */
+
+/* For the project descriptions, the following styles will be added */
+#projectDiv > p > a {
+  color: blue !important;
+}
+/* End */

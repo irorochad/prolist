@@ -61,10 +61,10 @@ function getAllProjects()
                             <button name="editProject" class="w-full block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</button>
                         </li>
                         <li>
-                        <button name="editProject" class="w-full block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sponsor</button>
+                        <button name="sponsor" class="w-full block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sponsor</button>
                         </li>
                         <li>
-                        <button name="editProject" class="w-full block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Request Removal</button>
+                        <button name="removeProject" class="w-full block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Request Removal</button>
                         </li>
                     </form>
                 </ul>
@@ -92,8 +92,9 @@ function actionsMsg()
 */
 // global $db_connection;
 if (isset($_POST['editProject'])) {
-    $the_id = $_POST['the_id'];
-    echo "You've cliked on the " . $the_id . " , to edit it";
+    $_SESSION['the_p_id'] = $_POST['the_id'];
+    header("Location: /prolist/account/edit_project");
+    
   }
 /* 
     End Functions to edit, delete, and sponser projects
