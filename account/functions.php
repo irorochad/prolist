@@ -26,7 +26,6 @@ function getAllProjects()
 ?>
 
         <tr class='bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600'>
-
             <th scope='row' class='py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white'>
                 <?php echo $project_name; ?>
             </th>
@@ -48,23 +47,24 @@ function getAllProjects()
                     </svg>
                 </button>
             </td>
+
         </tr>
         <!-- Dropdown menu -->
-        <div id="pActionsItem" class="relative z-50 md:inset-0 justify-center items-center hidden">
-            <div class=" absolute top-10 right-4 p-4  max-w-md h-full md:h-auto">
+        <div id="pActionsItem" class="relative z-10 md:inset-0 justify-center items-center hidden">
+            <div class=" absolute top-10 right-4 p-4  max-w-md h-full">
                 <ul class="py-1 text-sm text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700">
                     <form method="POST">
                         <li>
-                            <input value='' id='hidden_post_id' name="the_id" type="hidden"/>
+                            <input value='' id='hidden_post_id' name="the_id" type="hidden" />
                         </li>
                         <li>
                             <button name="editProject" class="w-full block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</button>
                         </li>
                         <li>
-                        <button name="sponsor" class="w-full block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sponsor</button>
+                            <button name="sponsor" class="w-full block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sponsor</button>
                         </li>
                         <li>
-                        <button name="removeProject" class="w-full block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Request Removal</button>
+                            <button name="removeProject" class="w-full block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Request Removal</button>
                         </li>
                     </form>
                 </ul>
@@ -94,8 +94,7 @@ function actionsMsg()
 if (isset($_POST['editProject'])) {
     $_SESSION['the_p_id'] = $_POST['the_id'];
     header("Location: /prolist/account/edit_project");
-    
-  }
+}
 /* 
     End Functions to edit, delete, and sponser projects
 */

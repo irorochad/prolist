@@ -90,14 +90,18 @@ if (closePasswordModal) {
 const projectActions = document.querySelectorAll("button.pActions");
 const thePActionsItems = document.querySelector("#pActionsItem");
 
-if(projectActions) {
+if (projectActions) {
   projectActions.forEach((n) =>
-  n.addEventListener("click", function () {
-    document.getElementById("hidden_post_id").value =
-      n.parentElement.getAttribute("id");
+    n.addEventListener("click", function () {
+      document.getElementById("hidden_post_id").value =
+        n.parentElement.getAttribute("id");
       // console.log(n.parentElement);
-    thePActionsItems.style.display = "block";
-  })
-);
+      // Toggle show and hide the edit,sponser, and remove items on the project
+      if (thePActionsItems.style.display == "none") {
+        thePActionsItems.style.display = "block";
+      } else {
+        thePActionsItems.style.display = "none";
+      }
+    })
+  );
 }
-

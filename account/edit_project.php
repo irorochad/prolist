@@ -38,7 +38,6 @@ include "./../includes/db/db.inc.php";
             <div class="form_wrap mb-14">
                 <?php
                 // ../../../images.prolist
-                echo  realpath('../../../prolist_admin'), PHP_EOL;
                 // The project id that was sent using POST and saved using session = $the_p_id
                 $the_p_id = $_SESSION['the_p_id'];
 
@@ -267,9 +266,10 @@ if (isset($_POST['updateForm'])) {
 
     $projectLogo = $_FILES["project_logo"]["name"];
     $project_logo_temp = $_FILES["project_logo"]["tmp_name"];
-
-    $uploads_dir =  realpath('../../../images.prolist');
+    
+    $uploads_dir = realpath('../../../images.prolist');
     move_uploaded_file($project_logo_temp, "$uploads_dir/$projectLogo");
+    
     $query = "UPDATE `projects_info` SET `user_id` = '$user_id', `project_logo` = '$projectLogo', `project_name` = '$projectName', `project_content` = '$projectAbout', `categories` = '$Projectcategories', `project_tags` = '$projectTags', `project_mainsite` = '$projetWebsite', `date_founded` = '$projectLauncDate' WHERE `id` = '$the_p_id'"; // $the_p_id is the project id that was passed using the session. 
 
     // $query .= "VALUES ('{$user_id}', '{$projectLogo}', '" . $projectName . "', '" . $projectAbout . "', '" . $Projectcategories . "', '" . $projectTags . "', '" . $projetWebsite . "', '" . getSlugUrl($projectName) . "', '" . $projectLauncDate . "')";
@@ -279,7 +279,7 @@ if (isset($_POST['updateForm'])) {
     if (!$insertQuery) {
         die("Query Failed." . mysqli_error($db_connection));
     } else {
-        $_SESSION['message'] = "This project details has been updated";
+        // $_SESSION['message'] = "This project details has been updated";
         header("Location: ../account/my_listing");
     }
 }
