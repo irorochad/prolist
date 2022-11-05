@@ -37,7 +37,6 @@ include "./../includes/db/db.inc.php";
             </div>
             <div class="form_wrap mb-14">
                 <?php
-                // ../../../images.prolist
                 // The project id that was sent using POST and saved using session = $the_p_id
                 $the_p_id = $_SESSION['the_p_id'];
 
@@ -80,7 +79,7 @@ include "./../includes/db/db.inc.php";
                                         <div class="relative z-0 mb-6 w-full group">
                                             <label for="project-cates" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Choose A Category *</label>
                                             <select id="project-cates" name="Projectcategories" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-
+                                            <option><?php echo $category; ?></option>
                                                 <?php $query = "SELECT * FROM project_categories";
 
                                                 $fetch_all_categories = mysqli_query($db_connection, $query);
@@ -267,7 +266,8 @@ if (isset($_POST['updateForm'])) {
     $projectLogo = $_FILES["project_logo"]["name"];
     $project_logo_temp = $_FILES["project_logo"]["tmp_name"];
     
-    $uploads_dir = realpath('../../../images.prolist');
+    // $uploads_dir = realpath('../../../images.prolist');
+    $uploads_dir = realpath('../../../htdocs/images.prolist');
     move_uploaded_file($project_logo_temp, "$uploads_dir/$projectLogo");
     
     $query = "UPDATE `projects_info` SET `user_id` = '$user_id', `project_logo` = '$projectLogo', `project_name` = '$projectName', `project_content` = '$projectAbout', `categories` = '$Projectcategories', `project_tags` = '$projectTags', `project_mainsite` = '$projetWebsite', `date_founded` = '$projectLauncDate' WHERE `id` = '$the_p_id'"; // $the_p_id is the project id that was passed using the session. 
