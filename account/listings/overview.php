@@ -63,7 +63,7 @@ if (!isset($_GET['p_id'])) {
 
                                     <h2 class="font-semibold text-gray-100 ">Project Actions</h2>
 
-                                    <?php if ($projectStatus == 'Rejected') : ?>
+                                    <?php if ($projectStatus == 'Rejected' || $projectStatus == 'Pending') : ?>
                                         <div class="mt-4 md:mt-6">
                                             <form method="POST" action="">
                                                 <input type="hidden" name="p_id" value="<?php echo $id; ?>" />
