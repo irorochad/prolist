@@ -21,54 +21,59 @@ var shadow = document.querySelector(".shadow");
 
 let formOneErroMsg = document.querySelector(".formOneErroMsg");
 
-form_1_next_btn.addEventListener("click", function () {
-  let inputFormOne = $(".formInputOne").toArray(); //document.querySelectorAll('.formInputOne')
-  inputFormOne.forEach((e) => {
-    let formValue = e.value.trim();
-    if (formValue == "") {
-      console.log("it's empty");
-      formOneErroMsg.style.display = "flex";
-    } else {
-      formOneErroMsg.style.display = "none";
-      form_1.style.display = "none";
-      form_2.style.display = "block";
-      form_1_btns.style.display = "none";
-      form_2_btns.style.display = "flex";
-      form_2_progessbar.classList.add("active");
-    }
-    
+if (form_1_next_btn) {
+  form_1_next_btn.addEventListener("click", function () {
+    let inputFormOne = $(".formInputOne").toArray(); //document.querySelectorAll('.formInputOne')
+    inputFormOne.forEach((e) => {
+      let formValue = e.value.trim();
+      if (formValue == "") {
+        console.log("it's empty");
+        formOneErroMsg.style.display = "flex";
+      } else {
+        formOneErroMsg.style.display = "none";
+        form_1.style.display = "none";
+        form_2.style.display = "block";
+        form_1_btns.style.display = "none";
+        form_2_btns.style.display = "flex";
+        form_2_progessbar.classList.add("active");
+      }
+    });
   });
-});
+}
 
-form_2_back_btn.addEventListener("click", function () {
-  form_1.style.display = "block";
-  form_2.style.display = "none";
+if (form_2_back_btn) {
+  form_2_back_btn.addEventListener("click", function () {
+    form_1.style.display = "block";
+    form_2.style.display = "none";
 
-  form_1_btns.style.display = "flex";
-  form_2_btns.style.display = "none";
+    form_1_btns.style.display = "flex";
+    form_2_btns.style.display = "none";
 
-  form_2_progessbar.classList.remove("active");
-});
+    form_2_progessbar.classList.remove("active");
+  });
 
-form_2_next_btn.addEventListener("click", function () {
-  form_2.style.display = "none";
-  form_3.style.display = "block";
+  form_2_next_btn.addEventListener("click", function () {
+    form_2.style.display = "none";
+    form_3.style.display = "block";
 
-  form_3_btns.style.display = "flex";
-  form_2_btns.style.display = "none";
+    form_3_btns.style.display = "flex";
+    form_2_btns.style.display = "none";
 
-  form_3_progessbar.classList.add("active");
-});
+    form_3_progessbar.classList.add("active");
+  });
+}
 
-form_3_back_btn.addEventListener("click", function () {
-  form_2.style.display = "block";
-  form_3.style.display = "none";
+if (form_3_back_btn) {
+  form_3_back_btn.addEventListener("click", function () {
+    form_2.style.display = "block";
+    form_3.style.display = "none";
 
-  form_3_btns.style.display = "none";
-  form_2_btns.style.display = "flex";
+    form_3_btns.style.display = "none";
+    form_2_btns.style.display = "flex";
 
-  form_3_progessbar.classList.remove("active");
-});
+    form_3_progessbar.classList.remove("active");
+  });
+}
 
 // End Form
 
@@ -77,15 +82,28 @@ tinymce.init({
   selector: "#about-wysiwyg",
   height: 300,
   plugins: [
-    'advlist', 'autolink', 'lists', 'link', 'charmap', 'preview',
-    'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
-    'insertdatetime', 'table', 'wordcount'
+    "advlist",
+    "autolink",
+    "lists",
+    "link",
+    "charmap",
+    "preview",
+    "anchor",
+    "searchreplace",
+    "visualblocks",
+    "code",
+    "fullscreen",
+    "insertdatetime",
+    "table",
+    "wordcount",
   ],
-  toolbar: 'undo redo | blocks | ' +
-  'bold italic backcolor | alignleft aligncenter ' +
-  'alignright alignjustify | bullist numlist outdent indent | ' +
-  'removeformat',
-  content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:15px }'
+  toolbar:
+    "undo redo | blocks | " +
+    "bold italic backcolor | alignleft aligncenter " +
+    "alignright alignjustify | bullist numlist outdent indent | " +
+    "removeformat",
+  content_style:
+    "body { font-family:Helvetica,Arial,sans-serif; font-size:15px }",
 });
 
 // End WYSIWYG
@@ -100,3 +118,18 @@ function showPreview(event) {
   }
 }
 // End Upload Prview
+
+// Start toggle for team members
+var checkbox = document.getElementById("checkbox");
+var role_form = document.getElementById("role_form");
+if (checkbox) {
+  checkbox.addEventListener("change", (e) => {
+    if (e.target.checked) {
+      role_form.style.display = "block";
+    } else {
+      role_form.style.display = "none";
+    }
+  });
+}
+
+// End

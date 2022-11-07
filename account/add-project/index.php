@@ -13,7 +13,7 @@
 <main class="h-full overflow-y-auto">
     <!-- Main Dashboard aside nav and sidebar -->
     <div class="container px-6 mx-auto grid">
-        
+
         <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
             Add Projects
         </h2>
@@ -46,8 +46,8 @@
                     sendData();
                 }
                 ?>
-                
-                <form method="POST" action=""  enctype="multipart/form-data">
+
+                <form method="POST" action="" enctype="multipart/form-data">
                     <fieldset>
                         <div class="form_1 data_info">
                             <h2 class="my-6 text-2xl text-center font-light text-gray-700 dark:text-gray-200">
@@ -59,6 +59,9 @@
                                     <div class="relative z-0 mb-6 w-full group">
                                         <label for="project-name" class=" block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Project Name *</label>
                                         <input type="text" name="project_name" id="project-name" placeholder="example-name" class="formInputOne block p-2 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                        <P class=" ml-2 text-sm text-gray-500 dark:text-gray-400">
+                                            It should be perfect - You won&apos;t be able to change it.
+                                        </P>
                                     </div>
                                     <div class="relative z-0 mb-6 w-full group">
                                         <label for="project-website" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Website *</label>
@@ -68,24 +71,20 @@
                                 <div class="grid md:grid-cols-2 md:gap-6">
                                     <div class="relative z-0 mb-6 w-full group">
                                         <label for="project-start-date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Project Launched On *</label>
-                                        <input type="date" id="project-start-date" name="projectLauncDate"  class="formInputOne block p-2 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                        <input type="date" id="project-start-date" name="projectLauncDate" class="formInputOne block p-2 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                     </div>
                                     <div class="relative z-0 mb-6 w-full group">
                                         <label for="project-cates" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Choose A Category *</label>
                                         <select id="project-cates" name="Projectcategories" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-
+                                            <option>-Select-</option>
                                             <?php $query = "SELECT * FROM project_categories";
 
                                             $fetch_all_categories = mysqli_query($db_connection, $query);
 
                                             while ($row = mysqli_fetch_assoc($fetch_all_categories)) {
                                                 $cats_title = $row['cats_title'];
-
-
                                             ?>
-
                                                 <option><?php echo $cats_title; ?></option>
-
                                             <?php
                                             } ?>
 
@@ -94,7 +93,7 @@
                                 </div>
                                 <div class="mb-6">
                                     <label for="about_txt" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Project Description **</label>
-                                    
+
                                     <textarea id="about-wysiwyg" name="about_txt" class="formInputOne"></textarea>
                                     <div class="flex flex-row mt-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 dark:text-gray-300">
@@ -105,10 +104,12 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="btns_wrap">
-                            <div class="m-5 "><p class="formOneErroMsg hidden text-gray-700 dark:text-gray-100">All Fields are required!</p></div>
-                                <div class="common_btns form_1_btns">                                   
+                                <div class="m-5 ">
+                                    <p class="formOneErroMsg hidden text-gray-700 dark:text-gray-100">All Fields are required!</p>
+                                </div>
+                                <div class="common_btns form_1_btns">
                                     <button type="button" class="btn_next">Next <span class="icon">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
@@ -116,8 +117,6 @@
                                         </span></button>
                                 </div>
                             </div>
-
-
                         </div>
                     </fieldset>
 
@@ -164,21 +163,53 @@
                                         </div>
                                     </div> <!-- End social Links -->
                                 </div> <!-- End Project logo and socials -->
-                                <!-- <h2 class="my-6 text-2xl text-center font-light text-gray-700 dark:text-gray-200">
-                                    Face of projects
-                                </h2>
-                            <div class="grid md:grid-cols-2 md:gap-6"> -->
 
-                                <!-- Start Project owners profiles -->
+                                <div>
+                                    <h2 class="my-6 text-2xl text-center font-bold text-gray-700 dark:text-gray-200">
+                                        Who Are You?
+                                    </h2>
+                                    <div class="flex flex-row items-center justify-center mb-5">
+                                        <p class="text-gray-700 dark:text-gray-200 font-light">Are you part of the team member?</p>
 
-                                <!-- <div class="flex flex-row w-full overflow-auto ">
-                                    <img class="w-80 h-80 rounded-full" src="https://flowbite.com/docs/images/examples/image-4@2x.jpg" alt="image description">
-                                    <img class="w-96 h-96 rounded-full" src="https://flowbite.com/docs/images/examples/image-4@2x.jpg" alt="image description">
-                                    <img class="w-96 h-96 rounded-full" src="https://flowbite.com/docs/images/examples/image-4@2x.jpg" alt="image description">
-                                    
-                                </div> 
-                            </div> -->
-                                <!-- End Project Owners Profile -->
+                                        <!-- Rounded switch -->
+                                        <label class="toggle_switch ml-5">
+                                            <input type="checkbox" id="checkbox">
+                                            <span class="toggle_slider round"></span>
+                                        </label>
+                                        <p id="text" style="display:none">Checkbox is CHECKED!</p>
+                                    </div>
+                                    <!-- Start the form for the project owners sections. 
+                                    It'll be hidden by default and shown when the checkbox above is checked -->
+                                    <div class="hidden" id="role_form">
+                                        <p class="text-gray-700 dark:text-gray-200 font-light text-center mb-10">The following information help us verify your relationship with the project.</p>
+                                        <div class="grid md:grid-cols-2 md:gap-6">
+                                            <div class="relative z-0 mb-6 w-full group">
+                                                <label for="user-role" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your Role *</label>
+                                                <select id="user-role" name="user-role" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                    <option>CEO/Founder</option>
+                                                    <option>Manager</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="relative z-0 mb-6 w-full group">
+                                                <label for="" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your Name *</label>
+                                                <input type="text" id="your-name" name="your-name" placeholder="John Mark" class="block p-2 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                            </div>
+                                        </div>
+
+                                        <div class="grid md:grid-cols-2 md:gap-6">
+                                            <div class="relative z-0 mb-6 w-full group">
+                                                <label for="" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Business Email *</label>
+                                                <input type="email" id="your-email" name="your-email" placeholder="John@project.com" class="block p-2 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                            </div>
+
+                                            <div class="relative z-0 mb-6 w-full group">
+                                                <label for="user-twitter-url" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Twitter URL *</label>
+                                                <input type="text" id="user-twitter-url" name="user-twitter-url" placeholder="https://twitter.com/your-name" class="block p-2 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="btns_wrap">
                                 <div class="common_btns form_2_btns" style="display: none;">
@@ -196,8 +227,6 @@
                                         </span></button>
                                 </div>
                             </div>
-
-
                         </div>
                     </fieldset>
 
@@ -209,7 +238,7 @@
                             </h2>
 
                             <div class="form_container">
-                                <p class="text-gray-700 dark:text-gray-200 text-center mb-5">Clicking on the &lsquo; ADD &rsquo; button, means you aggree to our terms of conditions. Upon Clicking on it, this project will be added and ready for review. </p>
+                                <p class="text-gray-700 dark:text-gray-200 text-center mb-5">Clicking on the &lsquo; ADD &rsquo; button, means you agree to our <a href="#" target="_blank" class="text-blue-600">terms of conditions</a> - Which state that project can&apos;t be deleted. Upon Clicking on it, this project will be added and ready for manual review. </p>
 
                                 <div class="btns_wrap">
                                     <div class="common_btns form_3_btns" style="display:none;">
@@ -237,9 +266,9 @@
             </div>
         </div>
         <!-- Add form Success Modal -->
-        
+
         <!-- End Form Success Modal -->
-        
+
     </div>
 </main>
 
