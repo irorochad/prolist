@@ -52,6 +52,8 @@ include "./../includes/db/db.inc.php";
                     $project_about = $row['project_content'];
                     $project_logo = $row['project_logo'];
 
+                    $project_verified = $row['is_verified'];
+
                 ?>
                     <form method="POST" action="" enctype="multipart/form-data">
                         <fieldset>
@@ -79,7 +81,7 @@ include "./../includes/db/db.inc.php";
                                         <div class="relative z-0 mb-6 w-full group">
                                             <label for="project-cates" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Choose A Category *</label>
                                             <select id="project-cates" name="Projectcategories" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                            <option><?php echo $category; ?></option>
+                                                <option><?php echo $category; ?></option>
                                                 <?php $query = "SELECT * FROM project_categories";
 
                                                 $fetch_all_categories = mysqli_query($db_connection, $query);
@@ -168,21 +170,54 @@ include "./../includes/db/db.inc.php";
                                             </div>
                                         </div> <!-- End social Links -->
                                     </div> <!-- End Project logo and socials -->
-                                    <!-- <h2 class="my-6 text-2xl text-center font-light text-gray-700 dark:text-gray-200">
-                                    Face of projects
-                                </h2>
-                            <div class="grid md:grid-cols-2 md:gap-6"> -->
+                                    <?php if ($project_verified == 'false') : //If the project is verified, this form will not be shown ?>
+                                        <div>
+                                            <h2 class="my-6 text-2xl text-center font-bold text-gray-700 dark:text-gray-200">
+                                                Who Are You?
+                                            </h2>
+                                            <div class="flex flex-row items-center justify-center mb-5">
+                                                <p class="text-gray-700 dark:text-gray-200 font-light">Are you part of the team member?</p>
 
-                                    <!-- Start Project owners profiles -->
+                                                <!-- Rounded switch -->
+                                                <label class="toggle_switch ml-5">
+                                                    <input type="checkbox" id="checkbox">
+                                                    <span class="toggle_slider round"></span>
+                                                </label>
+                                            </div>
+                                            <!-- Start the form for the project owners sections. 
+                                            It'll be hidden by default and shown when the checkbox above is checked -->
+                                            <div class="hidden" id="role_form">
+                                                <p class="text-gray-700 dark:text-gray-200 font-light text-center mb-10">The following information help us verify your relationship with the project, and won't be public.</p>
+                                                <div class="grid md:grid-cols-2 md:gap-6">
+                                                    <div class="relative z-0 mb-6 w-full group">
+                                                        <label for="user-role" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your Role *</label>
+                                                        <select id="user-role" name="user-role" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                            <option>CEO/Founder</option>
+                                                            <option>Manager</option>
+                                                        </select>
+                                                    </div>
 
-                                    <!-- <div class="flex flex-row w-full overflow-auto ">
-                                    <img class="w-80 h-80 rounded-full" src="https://flowbite.com/docs/images/examples/image-4@2x.jpg" alt="image description">
-                                    <img class="w-96 h-96 rounded-full" src="https://flowbite.com/docs/images/examples/image-4@2x.jpg" alt="image description">
-                                    <img class="w-96 h-96 rounded-full" src="https://flowbite.com/docs/images/examples/image-4@2x.jpg" alt="image description">
-                                    
-                                </div> 
-                            </div> -->
-                                    <!-- End Project Owners Profile -->
+                                                    <div class="relative z-0 mb-6 w-full group">
+                                                        <label for="" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your Name *</label>
+                                                        <input type="text" id="your-name" name="your-name" placeholder="John Mark" class="block p-2 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                    </div>
+                                                </div>
+
+                                                <div class="grid md:grid-cols-2 md:gap-6">
+                                                    <div class="relative z-0 mb-6 w-full group">
+                                                        <label for="" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Business Email *</label>
+                                                        <input type="email" id="your-email" name="your-email" placeholder="John@project.com" class="block p-2 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                    </div>
+
+                                                    <div class="relative z-0 mb-6 w-full group">
+                                                        <label for="user-twitter-url" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Twitter URL *</label>
+                                                        <input type="text" id="user-twitter-url" name="user-twitter-url" placeholder="https://twitter.com/your-name" class="block p-2 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
+
                                 </div>
                                 <div class="btns_wrap">
                                     <div class="common_btns form_2_btns" style="display: none;">
@@ -265,12 +300,17 @@ if (isset($_POST['updateForm'])) {
 
     $projectLogo = $_FILES["project_logo"]["name"];
     $project_logo_temp = $_FILES["project_logo"]["tmp_name"];
-    
+
     // $uploads_dir = realpath('../../../images.prolist');
     $uploads_dir = realpath('../../../htdocs/images.prolist');
     move_uploaded_file($project_logo_temp, "$uploads_dir/$projectLogo");
-    
-    $query = "UPDATE `projects_info` SET `user_id` = '$user_id', `project_logo` = '$projectLogo', `project_name` = '$projectName', `project_content` = '$projectAbout', `categories` = '$Projectcategories', `project_tags` = '$projectTags', `project_mainsite` = '$projetWebsite', `date_founded` = '$projectLauncDate' WHERE `id` = '$the_p_id'"; // $the_p_id is the project id that was passed using the session. 
+
+    $listerRole = mysqli_real_escape_string($db_connection, $_POST['user-role']);
+    $listerName = mysqli_real_escape_string($db_connection, $_POST['your-name']);
+    $listerEmail = mysqli_real_escape_string($db_connection, $_POST['your-email']);
+    $listerTwitter = mysqli_real_escape_string($db_connection, $_POST['user-twitter-url']);
+
+    $query = "UPDATE `projects_info` SET `user_id` = '$user_id', `project_logo` = '$projectLogo', `project_name` = '$projectName', `project_content` = '$projectAbout', `categories` = '$Projectcategories', `project_tags` = '$projectTags', `project_mainsite` = '$projetWebsite', `date_founded` = '$projectLauncDate', `user_role` = '$listerRole', `user_name` = '$listerName', `biz_email` = '$listerEmail', `user_twt_link` = '$listerTwitter' WHERE `id` = '$the_p_id'"; // $the_p_id is the project id that was passed using the session. 
 
     // $query .= "VALUES ('{$user_id}', '{$projectLogo}', '" . $projectName . "', '" . $projectAbout . "', '" . $Projectcategories . "', '" . $projectTags . "', '" . $projetWebsite . "', '" . getSlugUrl($projectName) . "', '" . $projectLauncDate . "')";
 

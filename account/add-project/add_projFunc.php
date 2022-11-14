@@ -34,8 +34,13 @@ function sendData()
     $uploads_dir = realpath('../../../images.prolist');
     move_uploaded_file($project_logo_temp, "$uploads_dir/$projectLogo");
 
-    $query = "INSERT INTO projects_info(user_id, project_logo, project_name, project_content, categories, project_tags, project_mainsite, slug_url, date_founded) ";
-    $query .= "VALUES ('{$user_id}', '{$projectLogo}', '" . $projectName . "', '" . $projectAbout . "', '" . $Projectcategories . "', '" . $projectTags . "', '" . $projetWebsite . "', '" . getSlugUrl($projectName) . "', '" . $projectLauncDate . "')";
+    $listerRole = mysqli_real_escape_string($db_connection, $_POST['user-role']);
+    $listerName = mysqli_real_escape_string($db_connection, $_POST['your-name']);
+    $listerEmail = mysqli_real_escape_string($db_connection, $_POST['your-email']);
+    $listerTwitter = mysqli_real_escape_string($db_connection, $_POST['user-twitter-url']);
+
+    $query = "INSERT INTO projects_info(user_id, project_logo, project_name, project_content, categories, project_tags, project_mainsite, slug_url, date_founded, user_role, `user_name`, biz_email, user_twt_link) ";
+    $query .= "VALUES ('{$user_id}', '{$projectLogo}', '" . $projectName . "', '" . $projectAbout . "', '" . $Projectcategories . "', '" . $projectTags . "', '" . $projetWebsite . "', '" . getSlugUrl($projectName) . "', '" . $projectLauncDate . "', '".$listerRole. "', '" . $listerName . "', '" . $listerEmail . "', '" . $listerTwitter . "')";
 
     $insertQuery = mysqli_query($db_connection, $query);
 

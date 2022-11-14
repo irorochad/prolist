@@ -76,7 +76,6 @@
                                     <div class="relative z-0 mb-6 w-full group">
                                         <label for="project-cates" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Choose A Category *</label>
                                         <select id="project-cates" name="Projectcategories" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                            <option>-Select-</option>
                                             <?php $query = "SELECT * FROM project_categories";
 
                                             $fetch_all_categories = mysqli_query($db_connection, $query);
@@ -87,7 +86,6 @@
                                                 <option><?php echo $cats_title; ?></option>
                                             <?php
                                             } ?>
-
                                         </select>
                                     </div>
                                 </div>
@@ -176,12 +174,11 @@
                                             <input type="checkbox" id="checkbox">
                                             <span class="toggle_slider round"></span>
                                         </label>
-                                        <p id="text" style="display:none">Checkbox is CHECKED!</p>
                                     </div>
                                     <!-- Start the form for the project owners sections. 
                                     It'll be hidden by default and shown when the checkbox above is checked -->
                                     <div class="hidden" id="role_form">
-                                        <p class="text-gray-700 dark:text-gray-200 font-light text-center mb-10">The following information help us verify your relationship with the project.</p>
+                                        <p class="text-gray-700 dark:text-gray-200 font-light text-center mb-10">The following information help us verify your relationship with the project, and won't be public.</p>
                                         <div class="grid md:grid-cols-2 md:gap-6">
                                             <div class="relative z-0 mb-6 w-full group">
                                                 <label for="user-role" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your Role *</label>
